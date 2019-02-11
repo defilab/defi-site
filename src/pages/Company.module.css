@@ -1,0 +1,19 @@
+.menu {
+    border-right: none;
+}
+
+.menuItem {
+    color: #405275;
+    background-color: #F7F8FA;
+    margin: 1px 0 !important;
+    font-size: 13px !important;
+    text-align: center;
+}
+
+.menuItem:focus {
+    color: white;
+}
+
+.menuItem .ant-menu-item-selected {
+    color: white !important;
+}

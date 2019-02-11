@@ -1,0 +1,56 @@
+.banner {
+    color: white;
+    height: 260px;
+    background-position: center;
+}
+
+.intro {
+    background-color: #F7F8FA;
+}
+
+.stepDesc {
+    font-size: 18px;
+    padding-left: 8px;
+}
+
+.useCases {
+    background-position: center;
+    height: 493px;
+}
+
+.useCaseTitle {
+    color: #4286F4;
+    font-size: 26px;
+}
+
+.useCaseTile {
+    padding: 30px 50px;
+    height: 232px;
+}
+
+.useCaseDesc {
+    line-height: 30px;
+}
+
+.advantages {
+    background-color: #F7F8FA;
+}
+
+.advantageTile {
+    padding: 35px;
+}
+
+.advantageTitle {
+    color: #4286F4;
+    font-size: 26px;
+}
+
+.advantageSubtitle {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.advantageDesc {
+    font-size: 14px;
+    line-height: 30px;
+}

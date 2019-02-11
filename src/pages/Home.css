@@ -1,0 +1,62 @@
+.home-banner {
+    height: 560px;
+    background-position: center;
+}
+
+.introduction {
+    height: 243px;
+    background-color: #F7F8FA;
+    font-size: 18px;
+}
+
+.vision-tile {
+    height: 180px;
+}
+
+.vision-title {
+    color: #4A70B7;
+    line-height: 30px;
+    font-size: 26px;
+    font-weight: 500;
+    padding: 50px;
+}
+
+.products-intro-title {
+    color: #4286F4;
+    font-size: 26px;
+}
+
+.products-intro-tile {
+    padding: 30px 50px;
+}
+
+.products-intro-desc {
+    line-height: 30px;
+}
+
+.products {
+    height: 580px;
+    background-position: center;
+}
+
+.products-tile {
+    background-repeat: no-repeat;
+}
+
+.products-tile-content {
+    height: 380px;
+    color: white;
+    padding: 30px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.technology-tile {
+    padding-top: 24px;
+    text-align: center;
+}
+
+.partners {
+    height: 366px;
+    background-position: center;
+}
