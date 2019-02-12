@@ -25,7 +25,7 @@ import advantageBg3 from '../assets/advantage_bg_3.png'
 const Step = (props) => (
     <Row type="flex" align="middle">
       <Col span={1}>
-        <img src={props.icon} alt="" />
+        <img src={props.icon} alt="" style={{ width: '27px', height: '27px' }} />
       </Col>
       <Col className={styles.stepDesc} span={23}>{props.desc}</Col>
     </Row>
@@ -57,7 +57,8 @@ const UseCases = () => (
 const DataCoverageItem = (props) => (
     <Row type="flex" justify="center">
       <Col>
-        <div style={{ textAlign: 'center' }}><img src={props.icon} alt={props.title} /></div>
+        <div style={{ textAlign: 'center' }}><img src={props.icon} alt={props.title}
+                                                  style={{ width: '36px', height: '39px' }} /></div>
         <Spacing height="20px" />
         <div style={{ textAlign: 'center', fontSize: '12px' }}>{props.title}</div>
       </Col>
@@ -112,12 +113,11 @@ const Advantages = () => (
         </Row>
         <div>
           <Row>
-            <Col className={styles.advantageTile} span={12}
-                 style={{
-                   height: '310px',
-                   backgroundImage: `url(${advantageBg2})`,
-                   backgroundSize: '100% 100%'
-                 }}>
+            <Col className={styles.advantageTile} span={12} style={{
+              height: '310px',
+              backgroundImage: `url(${advantageBg2})`,
+              backgroundSize: '100% 100%'
+            }}>
               <div className={styles.advantageTitle}>Security</div>
               <Spacing height="20px" />
               <div className={styles.advantageSubtitle}>Muti-party Computation (MPC)</div>
@@ -127,12 +127,11 @@ const Advantages = () => (
                 final data are unveiled.
               </div>
             </Col>
-            <Col className={styles.advantageTile} span={12}
-                 style={{
-                   height: '310px',
-                   backgroundImage: `url(${advantageBg3})`,
-                   backgroundSize: '100% 100%'
-                 }}>
+            <Col className={styles.advantageTile} span={12} style={{
+              height: '310px',
+              backgroundImage: `url(${advantageBg3})`,
+              backgroundSize: '100% 100%'
+            }}>
               <div className={styles.advantageTitle}>Privacy</div>
               <Spacing height="20px" />
               <div className={styles.advantageSubtitle}>Trusted Computing</div>
@@ -175,9 +174,8 @@ class Products extends Component {
           </Row>
           <Row className={globalStyles.section} type="flex" justify="center">
             <div className={globalStyles.content}>
-              <img src={graph} alt="" />
-              <Step icon={b1}
-                    desc={`When evaluating loan application risk, consumer lending company A initiates a credit fraud detection
+              <img src={graph} alt="" style={{ width: '1000px', height: '612px' }} />
+              <Step icon={b1} desc={`When evaluating loan application risk, consumer lending company A initiates a credit fraud detection
                   request with the Defi platform`} />
               <Spacing height="18px" />
               <Step icon={b2}

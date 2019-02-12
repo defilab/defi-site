@@ -17,6 +17,9 @@ import productsBg from '../assets/products_bg.png'
 import productsBg1 from '../assets/products_bg_1.png'
 import productsBg2 from '../assets/products_bg_2.png'
 import productsBg3 from '../assets/products_bg_3.png'
+import productIcon1 from '../assets/product_icon_1.png'
+import productIcon2 from '../assets/product_icon_2.png'
+import productIcon3 from '../assets/product_icon_3.png'
 import techIcon1 from '../assets/tech_icon_1.png'
 import techIcon2 from '../assets/tech_icon_2.png'
 import techIcon3 from '../assets/tech_icon_3.png'
@@ -43,7 +46,7 @@ const VisionTile = (props) => {
           <div className="vision-title">{title}</div>
         </Col>
         <Col span={8}>
-          <img src={logo} alt={title} />
+          <img src={logo} alt={title} style={{ width: '100px', height: '100px' }} />
         </Col>
       </Row>
   );
@@ -102,29 +105,46 @@ const ProductsIntro = () => (
 )
 
 const Products = () => (
-    <Row className="section products" type="flex" justify="center" gutter={8}
-         style={{ backgroundImage: `url(${productsBg})` }}>
+    <Row className="section products" type="flex" justify="center" style={{ backgroundImage: `url(${productsBg})` }}>
       <div className="content">
         <Col span={8} className="products-tile" style={{ backgroundImage: `url(${productsBg1})` }}>
           <Row className="products-tile-content" type="flex" align="bottom">
-            Credit Fraud Detection Solution
+            <Col>
+              <div><img src={productIcon1} alt="" style={{ width: '34px', height: '34px', marginBottom: '8px' }} />
+              </div>
+              <div>
+                Credit Fraud Detection Solution
+              </div>
+            </Col>
           </Row>
         </Col>
         <Col span={8} className="products-tile" style={{ backgroundImage: `url(${productsBg2})` }}>
           <Row className="products-tile-content" type="flex" align="bottom">
-            Coinsta <br />
-            News. Personal Data.
-            Cryptocurrencies. <br />
-            Manage all your digital
-            assets in one app.
+            <Col>
+              <div><img src={productIcon2} alt="" style={{ width: '34px', height: '34px', marginBottom: '8px' }} />
+              </div>
+              <div>
+                Coinsta <br />
+                News. Personal Data.
+                Cryptocurrencies. <br />
+                Manage all your digital
+                assets in one app.
+              </div>
+            </Col>
           </Row>
         </Col>
         <Col span={8} className="products-tile" style={{ backgroundImage: `url(${productsBg3})` }}>
           <Row className="products-tile-content" type="flex" align="bottom">
-            CreditMe <br />
-            One stop shop to get the
-            loan best suited for you
-            with your own data
+            <Col>
+              <div><img src={productIcon3} alt="" style={{ width: '34px', height: '34px', marginBottom: '8px' }} />
+              </div>
+              <div>
+                CreditMe <br />
+                One stop shop to get the
+                loan best suited for you
+                with your own data
+              </div>
+            </Col>
           </Row>
         </Col>
       </div>
@@ -134,7 +154,7 @@ const Products = () => (
 const TechnologyTile = (props) => (
     <Row className="technology-tile" type="flex" justify="center">
       <Col>
-        <div><img src={props.icon} alt={props.title} /></div>
+        <div><img src={props.icon} alt={props.title} style={{ width: '80px', height: '80px' }} /></div>
         <Spacing height="15px" />
         <div>{props.title}</div>
       </Col>
@@ -171,11 +191,11 @@ const Partners = () => (
       <div className="content">
         <div className="section-title">Strategic Partners & Investors</div>
         <Row type="flex" gutter={40}>
-          <Col span={4.5}><img src={partner1} alt="" /></Col>
-          <Col span={4.5}><img src={partner2} alt="" /></Col>
-          <Col span={4.5}><img src={partner3} alt="" /></Col>
-          <Col span={4.5}><img src={partner4} alt="" /></Col>
-          <Col span={4.5}><img src={partner5} alt="" /></Col>
+          <Col span={4.5}><img src={partner1} alt="" style={{ width: '159px', height: '75px' }} /></Col>
+          <Col span={4.5}><img src={partner2} alt="" style={{ width: '159px', height: '75px' }} /></Col>
+          <Col span={4.5}><img src={partner3} alt="" style={{ width: '159px', height: '75px' }} /></Col>
+          <Col span={4.5}><img src={partner4} alt="" style={{ width: '159px', height: '75px' }} /></Col>
+          <Col span={4.5}><img src={partner5} alt="" style={{ width: '159px', height: '75px' }} /></Col>
         </Row>
       </div>
     </Row>
@@ -187,7 +207,8 @@ class Home extends Component {
         <div>
           <div className="home-banner" style={{ backgroundImage: `url(${banner1})` }} />
           <Row className="introduction" type="flex" align="middle" justify="center">
-            <div className="content" style={{ padding: '20px', textAlign: 'center' }}>Defi Data Collaboration Protocol provides access to
+            <div className="content" style={{ padding: '20px', textAlign: 'center' }}>Defi Data Collaboration Protocol
+              provides access to
               high quality, secure and sharable data. The system allows easy processing, sharing and distribution of
               data, while keeping the privacy of both enterprises and individuals intact.
             </div>

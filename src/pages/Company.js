@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Row, Col, Menu, Card, Divider } from 'antd'
-import { BrowserRouter as Router, Route } from "react-router-dom"
+import { Route, Redirect } from "react-router-dom"
 import { withRouter } from "react-router";
 import { Link } from "react-router-dom"
 import globalStyles from '../global.module.css'
@@ -10,6 +10,10 @@ import coinDesk from '../assets/coindesk.png'
 import businessWeek from '../assets/business_week.png'
 import cbnWeekly from '../assets/cbn_weekly.png'
 import cnbc from '../assets/cnbc.png'
+import aboutBanner from '../assets/about_us_banner.png'
+import teamBanner from '../assets/team_banner.png'
+import mediaBanner from '../assets/media_banner.png'
+import joinBanner from '../assets/join_banner.png'
 
 const SideMenu = withRouter((props) => (
     <Menu className={styles.menu} selectedKeys={[props.location.pathname.split('/').pop()]}>
@@ -141,8 +145,7 @@ const Join = () => (
           2. Manage social media strategy and increase online traction by adding followers and promoting
           interactions; <br />
           3. Organize online and offline activities on a regular basis to engage users in all relevant channels; <br />
-          4. Track and analyse key data metrics on a daily basis to improve engagement.
-        </div>
+          4. Track and analyse key data metrics on a daily basis to improve engagement. </div>
       } requirements={
         <div>
           1. Undergraduate degree or above; <br />
@@ -159,14 +162,12 @@ const Join = () => (
           activities and plan optimization; <br />
           3. Plan online engagement activities, and coordinate with marketing, design and R&D teams to execute
           plans. <br />
-          4. Carry out daily data tracking and analysis to improve key metrics.
-        </div>
+          4. Carry out daily data tracking and analysis to improve key metrics. </div>
       } requirements={
         <div>
           1. Undergraduate degree or above; <br />
           2. 1-3 years of work experience in product operation; experience in blockchain industry preferred; <br />
-          3. Good data analysis skills and experience in performing PDCA cycle is preferred.
-        </div>
+          3. Good data analysis skills and experience in performing PDCA cycle is preferred. </div>
       } />
       <Divider />
       <JoinItem title="Software Developer" desc={
@@ -176,8 +177,7 @@ const Join = () => (
           2. Contribute in conceptualizing framework designs and deployment of technology; <br />
           3. Assist in producing relevant documents and ensure their regular updation to enhance the product
           quality; <br />
-          4. Continuously optimize the related product quality, performance and user experience.
-        </div>
+          4. Continuously optimize the related product quality, performance and user experience. </div>
       } requirements={
         <div>
           1. Undergraduate degree or above, with more than 3 years of experience in mobile app programming; <br />
@@ -188,14 +188,21 @@ const Join = () => (
     </div>
 )
 
-class Company extends Component {
-  navigate = (e) => {
-    this.props.history.push(`/company/${e.key}`)
-  }
+const Banner = (props) => (
+    <Row type="flex" justify="center" align="middle"
+         style={{ height: '260px', backgroundImage: `url(${props.image})` }}>
+      <div style={{ color: 'white', fontSize: '40px', fontWeight: '500' }}>{props.title}</div>
+    </Row>
+)
 
+class Company extends Component {
   render () {
     return (
-        <Router>
+        <div>
+          <Route path="/company/about" render={() => <Banner title="About Us" image={aboutBanner} />} />
+          <Route path="/company/team" render={() => <Banner title="Team" image={teamBanner} />} />
+          <Route path="/company/media" render={() => <Banner title="Media" image={mediaBanner} />} />
+          <Route path="/company/join" render={() => <Banner title="Join Us" image={joinBanner} />} />
           <Row type="flex" justify="center" style={{ paddingTop: '50px', paddingBottom: '80px' }}>
             <Row className={globalStyles.content}>
               <Col span={4}>
@@ -203,15 +210,18 @@ class Company extends Component {
               </Col>
               <Col span={20}>
                 <div style={{ paddingLeft: '20px' }}>
-                  <Route exact path="/company/about" component={About} />
-                  <Route exact path="/company/team" component={Team} />
-                  <Route exact path="/company/media" component={Media} />
-                  <Route exact path="/company/join" component={Join} />
+                  <Route exact path="/company" render={() => (
+                      <Redirect to="/company/about" />
+                  )} />
+                  <Route path="/company/about" component={About} />
+                  <Route path="/company/team" component={Team} />
+                  <Route path="/company/media" component={Media} />
+                  <Route path="/company/join" component={Join} />
                 </div>
               </Col>
             </Row>
           </Row>
-        </Router>
+        </div>
     );
   }
 }

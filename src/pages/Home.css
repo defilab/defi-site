@@ -41,14 +41,21 @@
 
 .products-tile {
     background-repeat: no-repeat;
+    background-position: center;
 }
 
 .products-tile-content {
     height: 380px;
+    width: 303px;
+    margin: auto;
     color: white;
     padding: 30px;
     font-size: 20px;
     font-weight: 500;
+}
+
+.products-tile-content:hover {
+    background-image: linear-gradient(rgba(66, 134, 244, 0.8), rgba(74, 112, 183, 0.8));
 }
 
 .technology-tile {

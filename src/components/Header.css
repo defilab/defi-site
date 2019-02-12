@@ -4,13 +4,43 @@
     width: 100%;
 }
 
-.logo {
+.header .logo {
     width: 80px;
     height: 30px;
 }
 
-.nav {
+.header .nav {
     background-color: transparent;
     line-height: 60px;
     margin-left: 20px;
+}
+
+.header .ant-menu-submenu a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.65);
+    display: block;
+    height: 60px;
+    line-height: 60px;
+}
+
+.header .ant-menu-submenu-active a {
+    text-decoration: none;
+    color: white;
+    line-height: 60px;
+}
+
+.header .submenu-active {
+    background-color: #4A70B7;
+}
+
+.header .submenu-active a {
+    color: white;
+}
+
+.header .submenu-active.ant-menu-submenu-active {
+    background-color: #4A70B7;
+}
+
+#products\$Menu {
+    background-color: #182848;
 }
