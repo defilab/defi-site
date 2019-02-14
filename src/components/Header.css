@@ -44,3 +44,17 @@
 #products\$Menu {
     background-color: #182848;
 }
+
+.header-link {
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 60px;
+    text-decoration: none;
+}
+
+.header-link:focus {
+    text-decoration: none;
+}
+
+.header-link:hover {
+    color: rgb(255, 255, 255);
+}

@@ -1,0 +1,71 @@
+.banner {
+    height: 560px;
+    background-position: center;
+}
+
+.introduction {
+    height: 243px;
+    background-color: #F7F8FA;
+    font-size: 18px;
+}
+
+.visionTile {
+    height: 180px;
+}
+
+.visionTitle {
+    color: #4A70B7;
+    line-height: 30px;
+    font-size: 26px;
+    font-weight: 500;
+    padding: 50px;
+}
+
+.solutions {
+    height: 850px;
+    background-repeat: no-repeat;
+}
+
+.solutionTile {
+    height: 593px;
+    padding: 30px 50px;
+}
+
+.solutionHeader {
+    height: 207px;
+    background-color: white;
+    padding: 30px;
+}
+
+.solutionBody {
+    height: 386px;
+}
+
+.solutionTitle {
+    color: #4A70B7;
+    font-size: 24px;
+}
+
+.solutionDesc {
+    line-height: 30px;
+}
+
+.productTile {
+    height: 386px;
+    color: white;
+    padding: 24px;
+}
+
+.productTile:hover {
+    background-image: linear-gradient(rgba(66,134,244,.8),rgba(74,112,183,.8));
+}
+
+.technologyTile {
+    padding-top: 24px;
+    text-align: center;
+}
+
+.partners {
+    height: 443px;
+    background-position: center;
+}

@@ -32,14 +32,10 @@ class Header extends Component {
                 <Col span={6}>
                   <div><Link className="link" to="/">Home</Link></div>
                   <div><Link className="link" to="/company/about">About</Link></div>
-                  <div><Link className="link" to="/">Contact</Link></div>
-                  <div><Link className="link" to="/">Support</Link></div>
                 </Col>
                 <Col span={6}>
                   <div><Link className="link" to="/products">Products</Link></div>
-                  <div><Link className="link" to="/">Developers</Link></div>
                   <div><Link className="link" to="/pricing">Pricing</Link></div>
-                  <div><Link className="link" to="/">Solutions</Link></div>
                 </Col>
                 <Col span={12}>
                   <div style={{ marginTop: "10px" }}>Email:</div>

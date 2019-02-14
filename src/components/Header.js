@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Row, Menu } from 'antd'
+import { Row, Col, Menu } from 'antd'
 import "antd/dist/antd.css"
 import { Link } from "react-router-dom"
 import { withRouter } from "react-router";
@@ -21,16 +21,28 @@ class Header extends Component {
           backgroundColor: transparent ? 'rgba(24, 40, 72, 0.2)' : '#182848'
         }}>
           <Row className="content" type="flex" align="middle">
-            <Link to="/"><img className="logo" src={logo} alt="logo" /></Link>
-            <Menu className="nav" theme="dark" mode="horizontal" selectedKeys={[activeLink]}>
-              <SubMenu className={activeLink === 'products' ? 'submenu-active' : ''} key="products" title={<Link to="/products">Products</Link>}>
-                <Menu.Item>Credit Blacklist</Menu.Item>
-                <Menu.Item>Coinsta</Menu.Item>
-                <Menu.Item>CreditMe</Menu.Item>
-              </SubMenu>
-              <Menu.Item key="pricing"><Link to="/pricing">Pricing</Link></Menu.Item>
-              <Menu.Item key="company"><Link to="/company">Company</Link></Menu.Item>
-            </Menu>
+            <Col span={14}>
+              <Row type="flex" align="middle">
+                <div><Link to="/"><img className="logo" src={logo} alt="logo" /></Link></div>
+                <div>
+                  <Menu className="nav" theme="dark" mode="horizontal" selectedKeys={[activeLink]}>
+                    <SubMenu className={activeLink === 'products' ? 'submenu-active' : ''} key="products"
+                             title={<Link to="/products">Products</Link>}>
+                      <Menu.Item>Credit Fraud Detection</Menu.Item>
+                    </SubMenu>
+                    <Menu.Item key="pricing"><Link to="/pricing">Pricing</Link></Menu.Item>
+                    <Menu.Item key="company"><Link to="/company">About</Link></Menu.Item>
+                  </Menu>
+                </div>
+              </Row>
+            </Col>
+            <Col span={10}>
+              <Row type="flex" justify="end">
+                <Link className="header-link" to="/">White Paper</Link>
+                <div style={{ width: '30px' }} />
+                <Link className="header-link" to="/">Sign In</Link>
+              </Row>
+            </Col>
           </Row>
         </Row>
     );

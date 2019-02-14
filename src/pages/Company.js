@@ -27,92 +27,125 @@ const SideMenu = withRouter((props) => (
 ))
 
 const About = () => (
-    <div style={{ fontWeight: 'lighter' }}>
-      <p style={{ lineHeight: '30px' }}>Founded in 2019, Defi Inc. is a leading financial technology company. We provide
-        solutions for both enterprises
-        and individuals. Enterprises can participate in data collaboration without exposing their original data to
-        realize greater value. Individuals can minimize data risks and enhance data protection, while generating value
-        from it.</p>
-      <p style={{ lineHeight: '30px' }}>Defi Inc. has secured investments from acclaimed investment institutions
-        including Ceyuan Ventures, Cherubic
-        Ventures, Chaosheng Ventures, and Danhua Capital. Defi Inc. is invited to the HyperLedger and Linux Foundation,
-        and has maintained close cooperation with mainstream media and well-known academic institutions.</p>
+    <div style={{ fontWeight: 'light', textAlign: 'justify' }}>
+      <p style={{ lineHeight: '30px' }}>Defi provides solutions for both enterprises and individuals. Enterprises can
+        participate in data collaboration without exposing their original data to realize greater value. Individuals can
+        minimize data risks and enhance data protection, while generating value from it. Defi has raised investments
+        from acclaimed investment institutions including Ceyuan Ventures, Cherubic Ventures, DHVC & Ledger Capital.</p>
     </div>
 )
 
 const TeamTile = (props) => (
-    <Card className={globalStyles.shadow} bordered={false} style={{ color: '#182848', marginBottom: '10px' }}>
-      <div style={{ fontSize: '20px' }}>{props.title}</div>
-      <div style={{ lineHeight: '24px', fontWeight: 'lighter' }}>{props.children}</div>
+    <Card className={globalStyles.shadow} bordered={false}
+          style={{ color: '#182848', marginBottom: '12px', position: 'relative', overflow: 'hidden' }}>
+      <div style={{
+        fontFamily: 'Arial',
+        position: 'absolute',
+        fontSize: '120px',
+        fontWeight: '500',
+        color: '#EEF2F8',
+        bottom: '-56px',
+        right: '-12px',
+        userSelect: 'none'
+      }}>{props.item.position}</div>
+      <div style={{ position: 'relative' }}>
+        <div style={{
+          fontSize: '20px',
+          fontWeight: '500',
+          marginLeft: '10px'
+        }}>{props.item.position} - {props.item.name}</div>
+        <div style={{ lineHeight: '24px', textAlign: 'justify' }}>
+          <ul style={{ listStyle: 'none', paddingLeft: '10px', marginTop: '10px' }}>
+            {props.item.desc.map((desc, i) => (
+                <li className={styles.memberDesc} style={{ marginTop: '10px' }} key={i}>{desc}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </Card>
 )
 
+const teamMembers = [
+  {
+    name: 'Kate Shen',
+    position: 'CEO',
+    desc: [
+      'Managed software development as program manager at Microsoft and Hulu, led design and development of Hulu’s second generation search engine (~10 million monthly users).',
+      'Built Xiaomi’s presence in early international markets, and served as country manager Singapore and Malaysia. Track record in building global market presence and community-based consumer marketing for tech products.',
+      'B.S. in Computer Science, Carnegie Mellon University.'
+    ]
+  },
+  {
+    name: 'Yupeng Liao',
+    position: 'Engineering',
+    desc: [
+      'Principal architect at Hulu, full stack engineer, 10 years of experience in software development and architecture design. Track record to build scalable and secure architecture that supports billion level daily transactions. ',
+      'Early designer of Hulu’s Digital Rights Management (DRM) technology on Android, with industry-proven encryption design and deployment.',
+      'B.S. in the Electronic Engineering, Tsinghua University.'
+    ]
+  },
+  {
+    name: 'Pillie Wang',
+    position: 'Product',
+    desc: [
+      'Former product lead of Lefinance and Blockchain Lab, with extensive experiences in fund products, fixed income products and crowdfunding business.',
+      'Former product lead of Venture Capital Circle, in charge of product development and business growth, developed intelligent search engine, recommendation system and transaction system for primary market. ',
+      'Former product lead of P2peye, built the first P2P ETF product in China with more than one billion CNY of transactions each year.',
+      'Bachelor in Journalism, Renmin University. '
+    ]
+  },
+  {
+    name: 'Vincent Lv',
+    position: 'Operation',
+    desc: [
+      'Former Director of monetization at China’s #1 mobile fitness app. Built up the ecommerce business and realized exponential revenue growth to $8 million in year one and $32 million in year two.',
+      'Former User Operations Manager at Xiaomi and former management consultant at Accenture.',
+      'Bachelor in Finance, Renmin University. '
+    ]
+  },
+  {
+    name: 'Summer Zhang',
+    position: 'Partnership',
+    desc: [
+      'Former Strategy Investment Manager at 9fbank, China’s leading fintech company with a full spectrum services including consumer lending, credit cards. Specialized in blockchain investment and business expansion in Southeast Asia.',
+      'Former Corporate Risk Advisory Consultant at Deloitte.',
+      'Master in Accounting, The University of Texas at Dallas; Bachelor in Public Finance & Accounting, Shanghai Finance & Economics University.'
+    ]
+  },
+  {
+    name: 'Lynne Zhang',
+    position: 'Marketing',
+    desc: [
+      'New media operations manager and marketing manager of CBNweekly, having many mainstream financial media resources.',
+      'Bitcoin\'s early investor. Built a blockchain goddess global community, and jointly launched nearly 100 media, project, and exchange platforms to launch airdrop activities, brought about 300,000 new registered users.',
+      'One of the founding team members of the world\'s first blockchain app store— BYBstore, led the BD and marketing department, with 300+ blockchain media, project parties, and community resources. planned several currency theme activities，and influenced nearly one million digi tal currency investors.'
+    ]
+  },
+  {
+    name: 'Jason Lu',
+    position: 'Advisor',
+    desc: [
+      'Former VP/CRO of Ant Financial, world’s largest fintech company with 450 million users and operator of Alipay (world\'s largest mobile and online payments platform) as well as Yu’e Bao (world\'s largest money-market fund). In charge of fraud risk, trust and safety, cybersecurity, big data & analytics, biometrics AI and CS divisions globally.',
+      'Former Sr. Director of Paypal. Served as risk technology and data science executive with 20+ years of experience in PayPal, Reuters, 1st Financial Bank and UBS. ',
+      'Extensive expertise in the development of complex real time financial systems and products. '
+    ]
+  },
+  {
+    name: 'Bin Zhang',
+    position: 'Advisor',
+    desc: [
+      'Ex-CEO of China Cheng Xin Credit, one of the largest credit scoring and credit rating companies in China.',
+      'Founder & ex-CEO of UMF, a top fintech company and one of the largest third-party payment companies in China; Under Mr. Zhang’s leadership, UMF joined Hyperledger as one of the earliest Chinese member. '
+    ]
+  },
+]
+
 const Team = () => (
     <Row type="flex" gutter={12}>
-      <Col span={12}>
-        <TeamTile title="CEO - Kate Shen">Managed software development as program manager at
-          Microsoft and Hulu, led design and development of Hulu’s second generation search engine (~10 million monthly
-          sers).Built Xiaomi’s presence in early international markets,and served as country manager Singapore and
-          Malaysia. Track record in building global market presence and community-based consumer marketing for tech
-          products.B.S. in Computer Science, Carnegie Mellon University."</TeamTile>
-        <TeamTile title="Partnership - Summer Zhang">Former Strategy Investment Manager at 9fbank, China’s leading
-          fintech company with a full spectrum services including consumer lending, credit cards and credit cards.
-          Specialize in blockchain investment and business expansion in Southeast Asia.
-          Former Corporate Risk Advisory Consultant at Deloitte.
-          Master in Accounting, The University of Texas at Dallas; Bachelor in Public Finance & Accounting, Shanghai
-          Finance & Economics University.</TeamTile>
-        <TeamTile title="Tech - Yupeng Liao">
-          Principal architect at Hulu, full stack engineer, 10 years of experience in software development and
-          architecture design. Track record to build scalable and secure architecture that supports billion level daily
-          transactions.
-          Early designer of Hulu’s Digital Rights Management (DRM) technology on Android, with industry-proven
-          encryption design and deployment.
-          B.S. in the Electronic Engineering, Tsinghua University.
-        </TeamTile>
-        <TeamTile title="Advisor - Bin Zhang">
-          Ex-CEO of China Cheng Xin International Credit Rating Co. Ltd, one of the largest credit scoring and credit
-          rating companies in China.
-          Founder & ex-CEO of UMF, a top fintech company and one of the largest third-party payment companies in China;
-          Under Mr. Zhang’s leadership, UMF joined Hyperledger as one of the earliest Chinese member.
-          Board Member of Bai Hang Zheng Xin (China Credit Alliance), a government-led initiative for credit data
-          sharing.
-        </TeamTile>
-      </Col>
-      <Col span={12}>
-        <TeamTile title="Operation - Vincent Lu">
-          Former Director of monetization at China’s #1 mobile fitness app. Built up the ecommerce business and realized
-          exponential revenue growth to $8 million in year one and $32 million in year two.
-          Former User Operations Manager at Xiaomi and former management consultant at Accenture.
-          Bachelor in Finance, Renmin University.
-        </TeamTile>
-        <TeamTile title="Product - Pillie Wang">
-          Former product lead of Lefinance and Blockchain Lab, with extensive experience in fund products, fixed income
-          products, crowdfunding business；
-          Former product lead of Venture Capital Circle, in charge of product development and business growth, developed
-          primary market smart engine and transaction system;
-          Former product lead of P2peye, built the first P2P ETF product in China with more than one billion CNY of
-          trasactions each year;
-          Bachelor in Journalism, Renmin University.
-        </TeamTile>
-        <TeamTile title="Marketing - Lynne Zhang">
-          New media operations manager and marketing manager of CBNweekly , having many mainstream financial media
-          resources;
-          Bitcoin's early investor, joined the blockchain industry in 2018. built a blockchain goddess global community,
-          and jointly launched nearly 100 media, project, and exchange platforms to launch airdrop activities, brought
-          about 300,000 new registered users.
-          One of the founding team members of the world's first blockchain APP store— BYBstore , led the BD and
-          marketing department, with 300+ blockchain media, project parties, and community resources. planned several
-          currency theme activities，and influenced nearly one million digital currency investors.
-        </TeamTile>
-        <TeamTile title="Adviser - Jason Lu">
-          Former VP/CRO of Ant Financial, world’s largest fintech company with 450 million users and operator of Alipay
-          (world's largest mobile and online payments platform) as well as Yu’e Bao (world's largest money-market fund).
-          In charge of fraud risk, trust and safety, cybersecurity, big data & analytics, biometrics AI and CS divisions
-          globally.
-          Former Sr. Director of Paypal. Served as risk technology and data science executive with 20+ years of
-          experience in PayPal, Reuters, 1st Financial Bank and UBS.
-          Extensive expertise in the development of complex real time financial systems and products.
-        </TeamTile>
+      <Col span={24}>
+        {teamMembers.map((m, i) => (
+            <TeamTile item={m} key={i} />
+        ))}
       </Col>
     </Row>
 )
@@ -130,60 +163,74 @@ const JoinItem = (props) => (
     <div>
       <div style={{ fontSize: '26px' }}>{props.title}</div>
       <div style={{ fontSize: '20px', margin: '20px 0 15px' }}>Job Description</div>
-      <div style={{ fontWeight: 'lighter', lineHeight: '30px' }}>{props.desc}</div>
+      <div style={{ lineHeight: '30px' }}>{props.desc}</div>
       <div style={{ fontSize: '20px', margin: '24px 0 15px' }}>Job Requirements</div>
-      <div style={{ fontWeight: 'lighter', lineHeight: '30px' }}>{props.requirements}</div>
+      <div style={{ ineHeight: '30px' }}>{props.requirements}</div>
     </div>
 )
 
 const Join = () => (
     <div>
-      <JoinItem title="Community Specialist" desc={
+      <JoinItem title="Business Development Associate" desc={
         <div>
-          1. Create strategies for operation, build groups of core users, undertake brand promotion, and develop and
-          maintain relationship with users; <br />
-          2. Manage social media strategy and increase online traction by adding followers and promoting
-          interactions; <br />
-          3. Organize online and offline activities on a regular basis to engage users in all relevant channels; <br />
-          4. Track and analyse key data metrics on a daily basis to improve engagement. </div>
+          1. Help focus Defi’s business strategy in specific areas of interest <br />
+          2. Take an opportunity from inception to completion, owning the process from sourcing to diligence to
+          execution <br />
+          3. Engage with the broader organization (product, engineering, marketing, etc.) to further qualify
+          opportunities and refine our areas of strategic interest </div>
       } requirements={
         <div>
-          1. Undergraduate degree or above; <br />
-          2. 1-3 years of work experience in community operation; experience in blockchain industry preferred; <br />
-          3. Good data analysis skills and experience in performing PDCA cycle is preferred. <br />
-        </div>
+          1. 5+ years experience in VC, banking, consulting, or finance at a tech startup <br />
+          2. Understanding of the Fintech and / or Blockchain landscape <br />
+          3. Strong verbal and written communication skills <br />
+          4. Serious attention to detail and a commitment to excellence <br />
+          5. Proactive, energetic and collaborate </div>
       } />
       <Divider />
-      <JoinItem title="Product Operation Manager" desc={
+      <JoinItem title="Senior Software Engineer" desc={
         <div>
-          1. Follow latest products and content trends, collect user feedback, and continuously optimize product
-          functions; <br />
-          2. Establish user groups and build strategies based on product functions, access the effectiveness of various
-          activities and plan optimization; <br />
-          3. Plan online engagement activities, and coordinate with marketing, design and R&D teams to execute
-          plans. <br />
-          4. Carry out daily data tracking and analysis to improve key metrics. </div>
+          1. Build enterprise, distributed payment applications that execute settlement within seconds to enable the
+          Internet of Value <br />
+          2. Prototype new solutions for complex software problems and implement them for production consumer finance
+          companies deployments <br />
+          3. Be a technical subject matter expert and share your expertise with a growing team of engineers <br />
+          4. Work with teams across the organization, including product, legal, and business development to think beyond
+          the technical implications of your design decisions </div>
       } requirements={
         <div>
-          1. Undergraduate degree or above; <br />
-          2. 1-3 years of work experience in product operation; experience in blockchain industry preferred; <br />
-          3. Good data analysis skills and experience in performing PDCA cycle is preferred. </div>
+          1. A deep understanding of Java and its ecosystem <br />
+          2. Experience building scalable and performant enterprise software <br />
+          3. Eagerness to work openly and collaboratively with a diverse team
+          4. A positive attitude and a passion for sharing knowledge - the go-to person on the team for small and large
+          questions <br />
+          5. Ability to encourage engineering best practices in a team and the larger department <br />
+          6. Bachelor’s in Computer Science or similar + 5 years of hands on Software Development experience, or
+          Master’s in Computer Science or similar + 2 years of hands on Software Development experience </div>
       } />
       <Divider />
-      <JoinItem title="Software Developer" desc={
+      <JoinItem title="Sales Director" desc={
         <div>
-          1. Participate in the design, development and optimization of mobile internet products in finance
-          industry; <br />
-          2. Contribute in conceptualizing framework designs and deployment of technology; <br />
-          3. Assist in producing relevant documents and ensure their regular updation to enhance the product
-          quality; <br />
-          4. Continuously optimize the related product quality, performance and user experience. </div>
+          1. Have strong working knowledge of the Defi products and services and be able to present the value of said
+          solutions to the appropriate audiences <br />
+          2. Responsible for attaining assigned booking targets in the form of sales quota <br />
+          3. Generate leads and drive sales bookings for Defi products and services <br />
+          4. Formulate the strategies, tactics and account plans, under the direction of management, necessary to
+          develop the leads and relationships within assigned territory/accounts <br />
+          5. Travel to client sites, present sales materials and conduct product demonstrations to potential
+          clients <br />
+          6. Manage the effective and rapid movement of leads through sales process, including qualification of
+          prospects; assessment of potential client needs; presentment of Defi solutions; and expeditious closing of
+          business <br />
+          7. Responsible for the daily maintenance of prompt and accurate sales pipeline forecasting </div>
       } requirements={
         <div>
-          1. Undergraduate degree or above, with more than 3 years of experience in mobile app programming; <br />
-          2. Experience with multiple programming languages and performance optimization for mobile apps; <br />
-          3. Individuals with experience in blockchain industry preferred. <br />
-        </div>
+          1. Bachelor’s degree preferred <br />
+          2. Minimum of 5 years experience in the financial services industry <br />
+          3. Must have a proven track record of successful sales <br />
+          4. Working knowledge of regulations surrounding the financial services industry <br />
+          5. Positive attitude and unsurpassed client relationship management skills <br />
+          6. Demonstrated ability to handle multiple projects simultaneously and in a timely manner <br />
+          7. Results-oriented </div>
       } />
     </div>
 )

@@ -24,6 +24,8 @@
 
 .button1 {
     background-color: #405275;
+    height: 40px;
+    font-size: 16px;
     width: 234px;
 }
 
@@ -33,9 +35,19 @@
 
 .button2 {
     background-color: #4A70B7;
+    height: 40px;
+    font-size: 16px;
     width: 234px;
 }
 
 .button2:focus {
     background-color: #4A70B7;
+}
+
+.okButton {
+    background-color: #4A70B7;
+    width: 124px;
+    height: 40px;
+    font-size: 16px;
+    margin-top: 20px;
 }

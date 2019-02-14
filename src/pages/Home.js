@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { Row, Col, Divider } from 'antd'
+import { Row, Col, Divider, Button } from 'antd'
 import Spacing from '../components/Spacing'
-import '../global.css'
-import './Home.css'
-import banner1 from '../assets/home_banner_1.png'
+import globalStyles from '../global.module.css'
+import styles from './Home.module.css'
+import homeBanner from '../assets/home_banner.jpg'
 import visionBg1 from '../assets/vision_bg_1.png'
 import visionBg2 from '../assets/vision_bg_2.png'
 import visionBg3 from '../assets/vision_bg_3.png'
@@ -12,8 +12,7 @@ import visionLogo1 from '../assets/vision_logo_1.png'
 import visionLogo2 from '../assets/vision_logo_2.png'
 import visionLogo3 from '../assets/vision_logo_3.png'
 import visionLogo4 from '../assets/vision_logo_4.png'
-import productsIntroBg from '../assets/products_intro_bg.png'
-import productsBg from '../assets/products_bg.png'
+import solutionsBg from '../assets/solutions_bg.png'
 import productsBg1 from '../assets/products_bg_1.png'
 import productsBg2 from '../assets/products_bg_2.png'
 import productsBg3 from '../assets/products_bg_3.png'
@@ -35,15 +34,17 @@ import partner2 from '../assets/partner_2.png'
 import partner3 from '../assets/partner_3.png'
 import partner4 from '../assets/partner_4.png'
 import partner5 from '../assets/partner_5.png'
+import partner6 from '../assets/partner_6.png'
+import partner7 from '../assets/partner_7.png'
 
 const VisionTile = (props) => {
   const { title, logo, background } = props;
 
   return (
-      <Row className="vision-tile backgroundImage" type="flex" align="middle"
+      <Row className={[styles.visionTile, globalStyles.backgroundImage].join(' ')} type="flex" align="middle"
            style={{ backgroundImage: `url(${background})` }}>
         <Col span={16}>
-          <div className="vision-title">{title}</div>
+          <div className={styles.visionTitle}>{title}</div>
         </Col>
         <Col span={8}>
           <img src={logo} alt={title} style={{ width: '100px', height: '100px' }} />
@@ -53,10 +54,11 @@ const VisionTile = (props) => {
 };
 
 const Vision = () => (
-    <Row className="section" type="flex" justify="center">
-      <div className="content">
-        <div className="section-title">Our Vision</div>
-        <div style={{ fontSize: '26px' }}>Defi aims to define state-of-art inclusive finance with:</div>
+    <Row className={globalStyles.section} type="flex" justify="center">
+      <div className={globalStyles.content}>
+        <div className={globalStyles.sectionTitle}>Our Vision</div>
+        <div style={{ fontSize: '26px', padding: '0 8px' }}>Defi aims to define state-of-art inclusive finance with:
+        </div>
         <Spacing />
         <Row>
           <Col span={12}>
@@ -78,81 +80,78 @@ const Vision = () => (
     </Row>
 )
 
-const ProductsIntro = () => (
-    <Row className="section" type="flex" justify="center">
-      <div className="content">
-        <div className="section-title">Our Products</div>
-        <div className="backgroundImage"
-             style={{ backgroundImage: `url(${productsIntroBg})`, backgroundRepeat: 'no-repeat' }}>
-          <Row>
-            <Col className="products-intro-tile" span={12}>
-              <div className="products-intro-title">Enterprise Data Collection</div>
-              <p className="products-intro-desc">Financial institutions can contribute data and models to better
-                identify,
-                evaluate and control risk. As a result, more individuals will have access to better financial
-                services.</p>
-            </Col>
-            <Col className="products-intro-tile" span={12}>
-              <div className="products-intro-title">Personal Data Wallet</div>
-              <p className="products-intro-desc">Defi makes sure your data is protected and owned by you. With
-                appropriate
-                management and authorization, your data could help you get better services and even token rewards.</p>
-            </Col>
-          </Row>
-        </div>
-      </div>
-    </Row>
-)
+class ProductTile extends Component {
+  state = {
+    active: false
+  }
 
-const Products = () => (
-    <Row className="section products" type="flex" justify="center" style={{ backgroundImage: `url(${productsBg})` }}>
-      <div className="content">
-        <Col span={8} className="products-tile" style={{ backgroundImage: `url(${productsBg1})` }}>
-          <Row className="products-tile-content" type="flex" align="bottom">
-            <Col>
-              <div><img src={productIcon1} alt="" style={{ width: '34px', height: '34px', marginBottom: '8px' }} />
+  render = () => (
+      <div className={globalStyles.backgroundImage} style={{ backgroundImage: `url(${this.props.background})` }}>
+        <Row className={styles.productTile} type="flex" align="bottom"
+             onMouseOver={() => this.setState({ active: true })} onMouseOut={() => this.setState({ active: false })}>
+          <Col>
+            <div><img src={this.props.icon} alt="" style={{ width: '34px', height: '30px' }} /></div>
+            <div style={{ fontSize: '22px' }}>{this.props.title}</div>
+            <div style={{ height: '60px' }}>{this.props.desc}</div>
+            {this.state.active ?
+                <Button htmlType="submit" style={{ color: '#182848', marginTop: '20px' }}>Details</Button> : null}
+          </Col>
+        </Row>
+      </div>
+  )
+}
+
+const Solutions = () => (
+    <Row className={[globalStyles.section, styles.solutions].join(' ')} type="flex" justify="center"
+         style={{ backgroundImage: `url(${solutionsBg})` }}>
+      <div className={globalStyles.content}>
+        <div className={globalStyles.sectionTitle}>Our Solutions</div>
+        <Row type="flex" gutter={10}>
+          <Col className={styles.solutionTile} span={10}>
+            <div className={styles.solutionHeader}>
+              <div className={styles.solutionTitle}>
+                Enterprise Data Collaboration
               </div>
-              <div>
-                Credit Fraud Detection Solution
+              <div className={styles.solutionDesc}>
+                Financial institutions can contribute data and models to better identify, evaluate and control risk. As
+                a result, more individuals will have access to better financial services.
               </div>
-            </Col>
-          </Row>
-        </Col>
-        <Col span={8} className="products-tile" style={{ backgroundImage: `url(${productsBg2})` }}>
-          <Row className="products-tile-content" type="flex" align="bottom">
-            <Col>
-              <div><img src={productIcon2} alt="" style={{ width: '34px', height: '34px', marginBottom: '8px' }} />
+            </div>
+            <div className={styles.solutionBody}>
+              <ProductTile background={productsBg1} icon={productIcon1} title="Credit Fraud Detection Solution"
+                           desc={`Secure joint computation platform for lending companies to detect credit fraud.`} />
+            </div>
+          </Col>
+          <Col className={styles.solutionTile} span={14}>
+            <div className={styles.solutionHeader}>
+              <div className={styles.solutionTitle}>
+                Personal Data Wallet
               </div>
-              <div>
-                Coinsta <br />
-                News. Personal Data.
-                Cryptocurrencies. <br />
-                Manage all your digital
-                assets in one app.
+              <div className={styles.solutionDesc}>
+                Defi makes sure your data is protected and owned by you. With appropriate management and authorization,
+                your data could help you get better services and even token rewards.
               </div>
-            </Col>
-          </Row>
-        </Col>
-        <Col span={8} className="products-tile" style={{ backgroundImage: `url(${productsBg3})` }}>
-          <Row className="products-tile-content" type="flex" align="bottom">
-            <Col>
-              <div><img src={productIcon3} alt="" style={{ width: '34px', height: '34px', marginBottom: '8px' }} />
-              </div>
-              <div>
-                CreditMe <br />
-                One stop shop to get the
-                loan best suited for you
-                with your own data
-              </div>
-            </Col>
-          </Row>
-        </Col>
+            </div>
+            <div className={styles.solutionBody}>
+              <Row tyle="flex" gutter={2}>
+                <Col span={12}>
+                  <ProductTile background={productsBg2} icon={productIcon2} title="Coinsta"
+                               desc="News. Personal Data. Cryptocurrencies. Manage all your digital assets in one app." />
+                </Col>
+                <Col span={12}>
+                  <ProductTile background={productsBg3} icon={productIcon3} title="CreditMe"
+                               desc="One stop shop to get the loan best suited for you with your own data" />
+                </Col>
+              </Row>
+            </div>
+          </Col>
+        </Row>
       </div>
     </Row>
 )
 
 const TechnologyTile = (props) => (
-    <Row className="technology-tile" type="flex" justify="center">
+    <Row className={styles.technologyTile} type="flex" justify="center">
       <Col>
         <div><img src={props.icon} alt={props.title} style={{ width: '80px', height: '80px' }} /></div>
         <Spacing height="15px" />
@@ -162,9 +161,9 @@ const TechnologyTile = (props) => (
 )
 
 const Technologies = () => (
-    <Row className="section" type="flex" justify="center">
-      <div className="content">
-        <div className="section-title">Core Technologies</div>
+    <Row className={globalStyles.section} type="flex" justify="center">
+      <div className={globalStyles.content}>
+        <div className={globalStyles.sectionTitle}>Core Technologies</div>
         <div style={{ textAlign: 'center' }}>By using technologies including blockchain, secure multi-party computation
           and machine learning, Defi can standardize, encapsulate and encrypt data to enable multi-party data
           collaboration.
@@ -186,16 +185,19 @@ const Technologies = () => (
 )
 
 const Partners = () => (
-    <Row className="section partners" type="flex" justify="center" gutter={8}
+    <Row className={[globalStyles.section, styles.partners].join(' ')} type="flex" justify="center"
          style={{ backgroundImage: `url(${partnersBg})` }}>
-      <div className="content">
-        <div className="section-title">Strategic Partners & Investors</div>
-        <Row type="flex" gutter={40}>
-          <Col span={4.5}><img src={partner1} alt="" style={{ width: '159px', height: '75px' }} /></Col>
-          <Col span={4.5}><img src={partner2} alt="" style={{ width: '159px', height: '75px' }} /></Col>
-          <Col span={4.5}><img src={partner3} alt="" style={{ width: '159px', height: '75px' }} /></Col>
-          <Col span={4.5}><img src={partner4} alt="" style={{ width: '159px', height: '75px' }} /></Col>
-          <Col span={4.5}><img src={partner5} alt="" style={{ width: '159px', height: '75px' }} /></Col>
+      <div className={globalStyles.content}>
+        <div className={globalStyles.sectionTitle}>Strategic Partners & Investors</div>
+        <Row type="flex" justify="center" gutter={40}>
+          <Col span={5}><img src={partner1} alt=""
+                             style={{ width: '159px', height: '75px', marginBottom: '30px' }} /></Col>
+          <Col span={5}><img src={partner2} alt="" style={{ width: '159px', height: '75px' }} /></Col>
+          <Col span={5}><img src={partner3} alt="" style={{ width: '159px', height: '75px' }} /></Col>
+          <Col span={5}><img src={partner4} alt="" style={{ width: '159px', height: '75px' }} /></Col>
+          <Col span={5}><img src={partner5} alt="" style={{ width: '159px', height: '75px' }} /></Col>
+          <Col span={5}><img src={partner6} alt="" style={{ width: '159px', height: '75px' }} /></Col>
+          <Col span={5}><img src={partner7} alt="" style={{ width: '159px', height: '75px' }} /></Col>
         </Row>
       </div>
     </Row>
@@ -205,18 +207,26 @@ class Home extends Component {
   render () {
     return (
         <div>
-          <div className="home-banner" style={{ backgroundImage: `url(${banner1})` }} />
-          <Row className="introduction" type="flex" align="middle" justify="center">
-            <div className="content" style={{ padding: '20px', textAlign: 'center' }}>Defi Data Collaboration Protocol
-              provides access to
+          <Row className={styles.banner} type="flex" justify="center" style={{ backgroundImage: `url(${homeBanner})` }}>
+            <div className={globalStyles.content} style={{ marginTop: '200px', color: 'white' }}>
+              <div style={{ fontSize: '50px', fontWeight: '500' }}>Blockchain-based Credit Fraud Detection</div>
+              <div style={{ fontSize: '20px', lineHeight: '30px' }}>Secure joint computation platform for lending
+                companies for fraud
+                detection. <br />
+                Now available in the Philippines.
+              </div>
+            </div>
+          </Row>
+          <Row className={styles.introduction} type="flex" align="middle" justify="center">
+            <div className={globalStyles.content} style={{ padding: '20px', textAlign: 'center' }}>
+              Defi Data Collaboration Protocol provides access to
               high quality, secure and sharable data. The system allows easy processing, sharing and distribution of
               data, while keeping the privacy of both enterprises and individuals intact.
             </div>
           </Row>
           <Vision />
           <Divider style={{ margin: 0 }} />
-          <ProductsIntro />
-          <Products />
+          <Solutions />
           <Technologies />
           <Partners />
         </div>

@@ -11,7 +11,6 @@ import b3 from '../assets/3.png'
 import b4 from '../assets/4.png'
 import b5 from '../assets/5.png'
 import b6 from '../assets/6.png'
-import productsIntroBg from '../assets/products_intro_bg.png'
 import useCasesBg from '../assets/use_cases_bg.png'
 import dataCoverage1 from '../assets/data_coverage_1.png'
 import dataCoverage2 from '../assets/data_coverage_2.png'
@@ -36,7 +35,7 @@ const UseCases = () => (
          style={{ backgroundImage: `url(${useCasesBg})` }}>
       <div className={globalStyles.content}>
         <div className={globalStyles.sectionTitle}>Use Cases</div>
-        <div style={{ backgroundImage: `url(${productsIntroBg})`, backgroundRepeat: 'no-repeat' }}>
+        <div className={globalStyles.shadow} style={{ backgroundColor: 'white' }}>
           <Row>
             <Col className={styles.useCaseTile} span={12}>
               <div className={styles.useCaseTitle}>Pre-loan Investigation</div>
@@ -162,7 +161,7 @@ class Products extends Component {
           </Row>
           <Row className={[globalStyles.section, styles.intro].join(' ')} type="flex" justify="center">
             <div className={globalStyles.content}>
-              <div className={globalStyles.sectionTitle}>Defi’s Credit Fraud Detection Model</div>
+              <div className={globalStyles.sectionTitle}>Defi’s Credit Fraud Detection Platform</div>
               <div className={globalStyles.sectionSubtitle}>Defi Data Collaboration Protocol provides credit fraud
                 detection service
                 in phase one. <br />
@@ -174,6 +173,7 @@ class Products extends Component {
           </Row>
           <Row className={globalStyles.section} type="flex" justify="center">
             <div className={globalStyles.content}>
+              <div className={globalStyles.sectionTitle}>Business Process</div>
               <img src={graph} alt="" style={{ width: '1000px', height: '612px' }} />
               <Step icon={b1} desc={`When evaluating loan application risk, consumer lending company A initiates a credit fraud detection
                   request with the Defi platform`} />
