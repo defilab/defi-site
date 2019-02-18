@@ -26,7 +26,7 @@ class Header extends Component {
         <div className="footer">
           <Row type="flex" justify="center">
             <div className="content">
-              <img src={logo} alt="logo" />
+              <img className="logo" src={logo} alt="logo" />
               <Spacing height="50px" />
               <Row>
                 <Col span={6}>
