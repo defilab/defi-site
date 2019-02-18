@@ -27,8 +27,8 @@ class Header extends Component {
                 <div>
                   <Menu className="nav" theme="dark" mode="horizontal" selectedKeys={[activeLink]}>
                     <SubMenu className={activeLink === 'products' ? 'submenu-active' : ''} key="products"
-                             title={<Link to="/products">Products</Link>}>
-                      <Menu.Item>Credit Fraud Detection</Menu.Item>
+                             title="Products">
+                      <Menu.Item><Link to="/products">Credit Fraud Detection</Link></Menu.Item>
                     </SubMenu>
                     <Menu.Item key="pricing"><Link to="/pricing">Pricing</Link></Menu.Item>
                     <Menu.Item key="company"><Link to="/company">About</Link></Menu.Item>
@@ -40,7 +40,7 @@ class Header extends Component {
               <Row type="flex" justify="end">
                 <Link className="header-link" to="/">White Paper</Link>
                 <div style={{ width: '30px' }} />
-                <Link className="header-link" to="/">Sign In</Link>
+                <a className="header-link" href="https://portal.test.defilab.com">Sign In</a>
               </Row>
             </Col>
           </Row>

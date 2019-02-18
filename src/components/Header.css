@@ -37,6 +37,10 @@
     color: white;
 }
 
+.header .ant-menu-submenu-open {
+    color: white !important;
+}
+
 .header .submenu-active.ant-menu-submenu-active {
     background-color: #4A70B7;
 }
