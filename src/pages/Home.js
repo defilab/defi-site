@@ -88,7 +88,7 @@ class ProductTile extends Component {
   render = () => (
       <div className={globalStyles.backgroundImage} style={{ backgroundImage: `url(${this.props.background})` }}>
         <Row className={styles.productTile} type="flex" align="bottom"
-             onMouseOver={() => this.setState({ active: true })} onMouseOut={() => this.setState({ active: false })}>
+             onMouseEnter={() => this.setState({ active: true })} onMouseLeave={() => this.setState({ active: false })}>
           <Col>
             <div><img src={this.props.icon} alt="" style={{ width: '34px', height: '30px' }} /></div>
             <div style={{ fontSize: '22px' }}>{this.props.title}</div>

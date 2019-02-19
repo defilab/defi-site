@@ -23,6 +23,10 @@
     line-height: 60px;
 }
 
+.header .submenu-active {
+    color: white;
+}
+
 .header .ant-menu-submenu-active a {
     text-decoration: none;
     color: white;
