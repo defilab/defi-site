@@ -38,7 +38,7 @@ class Header extends Component {
             </Col>
             <Col span={10}>
               <Row type="flex" justify="end">
-                <Link className="header-link" to="/">White Paper</Link>
+                <a className="header-link" href="/white-paper.pdf">White Paper</a>
                 <div style={{ width: '30px' }} />
                 <a className="header-link" href="https://portal.test.defilab.com">Sign In</a>
               </Row>

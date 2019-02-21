@@ -200,7 +200,7 @@ const Join = () => (
         <div>
           1. A deep understanding of Java and its ecosystem <br />
           2. Experience building scalable and performant enterprise software <br />
-          3. Eagerness to work openly and collaboratively with a diverse team
+          3. Eagerness to work openly and collaboratively with a diverse team <br/>
           4. A positive attitude and a passion for sharing knowledge - the go-to person on the team for small and large
           questions <br />
           5. Ability to encourage engineering best practices in a team and the larger department <br />
