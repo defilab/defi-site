@@ -33,6 +33,7 @@
     position: absolute;
     bottom: 15px;
     left: 28px;
+    border: none;
 }
 
 .button1:focus {
@@ -48,6 +49,7 @@
     position: absolute;
     bottom: 15px;
     left: 28px;
+    border: none;
 }
 
 .button2:focus {
