@@ -3,8 +3,8 @@ import { Row, Col, Button, Modal } from 'antd';
 import globalStyles from '../global.module.css'
 import styles from './Pricing.module.css'
 import Spacing from '../components/Spacing'
-import prepaidCash from '../assets/prepaid_cash.png'
-import customizedPlan from '../assets/customized_plan.png'
+import tileBg1 from '../assets/pricing_tile_bg_1.png'
+import tileBg2 from '../assets/pricing_tile_bg_2.png'
 
 class Pricing extends Component {
   state = {
@@ -16,50 +16,72 @@ class Pricing extends Component {
         <div>
           <Row className={globalStyles.section} style={{ textAlign: 'center' }} type="flex" justify="center">
             <div className={globalStyles.content}>
-              <div className={styles.title}>Easy access to data, multiple plans
-                to choose from
+              <div className={styles.title}>Easy access, multiple plans
               </div>
+              <Spacing height="10px" />
+              <div className={styles.subtitle}>After trial, there are three ways of availing our products:</div>
               <Spacing height="20px" />
-              <span className={styles.subtitle}>
-              Also take DFT token for payment
-            </span>
-              <Spacing height="20px" />
-              <Row type="flex" justify="center">
-                <Col span={9} style={{ textAlign: 'center', color: 'white' }}>
-                  <div className={[styles.plan, globalStyles.backgroundImage].join(' ')}
-                       style={{ backgroundImage: `url(${prepaidCash})`, padding: '46px 70px' }}>
-                    <div style={{ fontSize: '30px' }}>Prepaid cash</div>
+              <Row type="flex" justify="center" style={{ backgroundColor: '#' }}>
+                <Col span={6} style={{ textAlign: 'center', color: 'white' }}>
+                  <div className={[styles.plan, globalStyles.backgroundImage, globalStyles.shadow].join(' ')}
+                       style={{ backgroundImage: `url(${tileBg1})`, paddingTop: '22px' }}>
+                    <div style={{ fontSize: '24px', fontWeight: '600' }}>Free Trial</div>
                     <div className={styles.line} />
-                    <div style={{ fontSize: '16px' }}>Pay as you query</div>
-                    <div style={{ color: 'rgba(255, 255, 255, 0.6)' }}>Minimum deposit: 100 PHP</div>
-                    <Spacing height="104px" />
-                    <div>
-                      <span style={{ color: '#405275', fontSize: '70px', lineHeight: '30px' }}>40 </span>
-                      <span style={{ color: '#405275', fontSize: '30px' }}>PHP</span>
+                    <div style={{ fontSize: '14px', fontWeight: '500' }}>Use them in 10 days</div>
+                    <Spacing height="60px" />
+                    <div style={{ fontWeight: '500' }}>
+                      <span style={{ color: '#4A70B7', fontSize: '14px' }}>Get </span>
+                      <span style={{ color: '#4A70B7', fontSize: '21px' }}>5000 </span>
+                      <span style={{ color: '#4A70B7', fontSize: '14px' }}>queries <br />once you sign up</span>
                     </div>
-                    <div style={{ color: '#405275' }}>each query</div>
-                    <Spacing height="40px" />
+                    <Button className={styles.button2} type="primary" htmlType="button"
+                            onClick={() => this.setState({ showContactInfo: true })}>Contact Us</Button>
+                  </div>
+                </Col>
+                <Col span={6} style={{ textAlign: 'center', color: 'white' }}>
+                  <div className={[styles.plan, globalStyles.backgroundImage, globalStyles.shadow].join(' ')}
+                       style={{ backgroundImage: `url(${tileBg2})`, paddingTop: '22px' }}>
+                    <div style={{ fontSize: '24px', fontWeight: '600' }}>Prepaid Cash</div>
+                    <div className={styles.line} />
+                    <div style={{ fontSize: '14px', fontWeight: '500' }}>Pay as you query</div>
+                    <Spacing height="34px" />
+                    <div style={{ fontSize: '12px', color: '#AAAAAA' }}>Minimum deposit: 100 PHP</div>
+                    <div style={{ color: '#405275' }}>
+                      <div style={{ fontWeight: '500' }}>
+                        <span style={{ fontSize: '70px', lineHeight: '70px' }}>8 </span>
+                        <span style={{ fontSize: '30px' }}>PHP</span>
+                      </div>
+                      <div style={{ fontSize: '14px' }}>each query</div>
+                    </div>
                     <Button className={styles.button1} type="primary" htmlType="button"
                             onClick={() => this.setState({ showContactInfo: true })}>Buy Now</Button>
                   </div>
                 </Col>
-                <Col span={9} style={{ textAlign: 'center', color: 'white' }}>
-                  <div className={[styles.plan, globalStyles.backgroundImage].join(' ')}
-                       style={{ backgroundImage: `url(${customizedPlan})`, padding: '46px 70px' }}>
-                    <div style={{ fontSize: '30px' }}>Customized plan</div>
-                    <div className={styles.line} />
-                    <div style={{ fontSize: '16px' }}>Suitable for partners with
-                      large query volumn or willing to
-                      participate in data exchange
-                    </div>
+                <Col span={6} style={{ textAlign: 'center', color: 'white' }}>
+                  <div className={[styles.plan, globalStyles.backgroundImage, globalStyles.shadow].join(' ')}
+                       style={{ backgroundImage: `url(${tileBg2})`, paddingTop: '46px' }}>
+                    <div style={{ fontSize: '24px', fontWeight: '500' }}>Bulk billing</div>
                     <Spacing height="80px" />
-                    <div style={{ color: '#405275', fontSize: '16px' }}>
-                      <div>• Volume discount •</div>
-                      <Spacing height="8px" />
-                      <div>• Free change •</div>
+                    <div style={{ width: '100%', color: '#182848', fontSize: '14px', fontWeight: '500' }}>
+                      <div>Purchase the queries</div>
+                      <div>in bulk at wholesale price</div>
                     </div>
-                    <Spacing height="54px" />
-                    <Button className={styles.button2} type="primary" htmlType="button"
+                    <Button className={styles.button1} type="primary" htmlType="button"
+                            onClick={() => this.setState({ showContactInfo: true })}>Buy Now</Button>
+                  </div>
+                </Col>
+                <Col span={6} style={{ textAlign: 'center', color: 'white' }}>
+                  <div className={[styles.plan, globalStyles.backgroundImage, globalStyles.shadow].join(' ')}
+                       style={{ backgroundImage: `url(${tileBg2})`, paddingTop: '46px' }}>
+                    <div style={{ fontSize: '24px', fontWeight: '500' }}>Customized Plan</div>
+                    <Spacing height="60px" />
+                    <div style={{ width: '100%', color: '#182848', fontSize: '14px', fontWeight: '500' }}>
+                      <div>Suitable for partners with</div>
+                      <div>large query volume or</div>
+                      <div>willing to participate in</div>
+                      <div>data exchange</div>
+                    </div>
+                    <Button className={styles.button1} type="primary" htmlType="button"
                             onClick={() => this.setState({ showContactInfo: true })}>Contact Us</Button>
                   </div>
                 </Col>
