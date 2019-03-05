@@ -45,10 +45,10 @@ class Pricing extends Component {
                     <div className={styles.line} />
                     <div style={{ fontSize: '14px', fontWeight: '500' }}>Pay as you query</div>
                     <Spacing height="34px" />
-                    <div style={{ fontSize: '12px', color: '#AAAAAA' }}>Minimum deposit: 100 PHP</div>
+                    <div style={{ fontSize: '12px', color: '#AAAAAA' }}>Minimum deposit: 10000 PHP</div>
                     <div style={{ color: '#405275' }}>
                       <div style={{ fontWeight: '500' }}>
-                        <span style={{ fontSize: '70px', lineHeight: '70px' }}>8 </span>
+                        <span style={{ fontSize: '70px', lineHeight: '70px' }}>62 </span>
                         <span style={{ fontSize: '30px' }}>PHP</span>
                       </div>
                       <div style={{ fontSize: '14px' }}>each query</div>
