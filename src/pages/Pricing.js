@@ -19,7 +19,7 @@ class Pricing extends Component {
               <div className={styles.title}>Easy access, multiple plans
               </div>
               <Spacing height="10px" />
-              <div className={styles.subtitle}>After trial, there are three ways of availing our products:</div>
+              <div className={styles.subtitle}>After trial, there are two ways of availing our products:</div>
               <Spacing height="20px" />
               <Row type="flex" justify="center" style={{ backgroundColor: '#' }}>
                 <Col span={6} style={{ textAlign: 'center', color: 'white' }}>
@@ -52,19 +52,6 @@ class Pricing extends Component {
                         <span style={{ fontSize: '30px' }}>PHP</span>
                       </div>
                       <div style={{ fontSize: '14px' }}>each query</div>
-                    </div>
-                    <Button className={styles.button1} type="primary" htmlType="button"
-                            onClick={() => this.setState({ showContactInfo: true })}>Buy Now</Button>
-                  </div>
-                </Col>
-                <Col span={6} style={{ textAlign: 'center', color: 'white' }}>
-                  <div className={[styles.plan, globalStyles.backgroundImage, globalStyles.shadow].join(' ')}
-                       style={{ backgroundImage: `url(${tileBg2})`, paddingTop: '46px' }}>
-                    <div style={{ fontSize: '24px', fontWeight: '500' }}>Bulk billing</div>
-                    <Spacing height="80px" />
-                    <div style={{ width: '100%', color: '#182848', fontSize: '14px', fontWeight: '500' }}>
-                      <div>Purchase the queries</div>
-                      <div>in bulk at wholesale price</div>
                     </div>
                     <Button className={styles.button1} type="primary" htmlType="button"
                             onClick={() => this.setState({ showContactInfo: true })}>Buy Now</Button>
