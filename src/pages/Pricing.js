@@ -5,13 +5,38 @@ import styles from './Pricing.module.css'
 import Spacing from '../components/Spacing'
 import tileBg1 from '../assets/pricing_tile_bg_1.png'
 import tileBg2 from '../assets/pricing_tile_bg_2.png'
-
+import store from '../store/index.js'
 class Pricing extends Component {
   state = {
     showContactInfo: false
   }
 
   render () {
+
+
+    let country=store.getState()
+
+    // const languageLabels = {
+    //    'Philippines':{'num':'7.86','price':'PHP'},
+    //  'Indonesian':{'num':'3,469.75','price':'VND'},
+    //    'Vietnamese':{'num':'2,108.75','price':'IDR'}
+    // };
+    const numlist = {
+      'Philippines':'7.86',
+    'Indonesian':'3,469.75',
+      'Vietnamese':'2,108.75'
+   };
+   const pricelist = {
+    'Philippines':'PHP',
+  'Indonesian':'VND',
+    'Vietnamese':'IDR'
+ };
+ let num=numlist[country];
+ let price=pricelist[country];
+
+
+
+
     return (
         <div>
           <Row className={globalStyles.section} style={{ textAlign: 'center' }} type="flex" justify="center">
@@ -48,8 +73,8 @@ class Pricing extends Component {
                     <div style={{ fontSize: '12px', color: '#AAAAAA' }}>Minimum deposit: 10000 PHP</div>
                     <div style={{ color: '#405275' }}>
                       <div style={{ fontWeight: '500' }}>
-                        <span style={{ fontSize: '70px', lineHeight: '70px' }}>62 </span>
-                        <span style={{ fontSize: '30px' }}>PHP</span>
+                        <span style={{ fontSize: '26px', lineHeight: '70px' }}>{num} </span>
+                        <span style={{ fontSize: '20px' }}>{price}</span>
                       </div>
                       <div style={{ fontSize: '14px' }}>each query</div>
                     </div>

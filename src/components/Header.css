@@ -66,3 +66,41 @@
 .header-link:hover {
     color: rgb(255, 255, 255);
 }
+.ant-dropdown-link{
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+
+}
+.ant-dropdown-link:hover {
+    color: rgb(255, 255, 255);
+}
+
+
+
+
+/* @import '~antd/lib/style/themes/default.less'; */
+
+/* .menu {
+  :global(.anticon) {
+    margin-right: 8px;
+  }
+  :global(.ant-dropdown-menu-item) {
+    min-width: 160px;
+  }
+} */
+
+.dropDown {
+  cursor: pointer;
+  vertical-align: top;
+  /* line-height: @layout-header-height; */
+
+}
+.dropDown> i{
+    font-size: 14px !important;
+    transform: none !important;
+    
+  }
+  .dropDown> i > svg {
+    position: relative;
+    top: -1px;
+  }
