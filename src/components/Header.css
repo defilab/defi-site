@@ -70,10 +70,6 @@
     color: rgb(255, 255, 255);
 }
 
-.ant-dropdown-menu-item:hover{
-    background-color: #e6f7ff;
-}
-
 
 
 
@@ -108,3 +104,22 @@
   .ant-dropdown-open{
     color: rgb(255, 255, 255);
   }
+ 
+  .ant-menu-item:hover{
+    background-color: #e6f7ff;
+    color: rgba(0, 0, 0, 0.65);
+  }
+  
+  .ant-menu-vertical :not(:last-child).ant-menu-item, .ant-menu-vertical-left :not(:last-child).ant-menu-item, .ant-menu-vertical-right :not(:last-child).ant-menu-item, .ant-menu-inline :not(:last-child).ant-menu-item {
+    margin-bottom: 0px;
+}
+.ant-menu-vertical .ant-menu-item, .ant-menu-vertical-left .ant-menu-item, .ant-menu-vertical-right .ant-menu-item, .ant-menu-inline .ant-menu-item, .ant-menu-vertical .ant-menu-submenu-title, .ant-menu-vertical-left .ant-menu-submenu-title, .ant-menu-vertical-right .ant-menu-submenu-title, .ant-menu-inline .ant-menu-submenu-title{
+    margin-top:0px;
+} 
+
+
+
+
+
+
+  

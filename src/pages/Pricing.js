@@ -5,22 +5,23 @@ import styles from './Pricing.module.css'
 import Spacing from '../components/Spacing'
 import tileBg1 from '../assets/pricing_tile_bg_1.png'
 import tileBg2 from '../assets/pricing_tile_bg_2.png'
-import store from '../store/index.js'
+import stateContext from '../context/context'
 class Pricing extends Component {
   state = {
     showContactInfo: false
   }
 
+
+  static contextType = stateContext;
+ 
+  componentDidMount() {
+    console.log(this.context,'gggggg');
+  }
+
   render () {
 
 
-    let country=store.getState()
-
-    // const languageLabels = {
-    //    'Philippines':{'num':'7.86','price':'PHP'},
-    //  'Indonesian':{'num':'3,469.75','price':'VND'},
-    //    'Vietnamese':{'num':'2,108.75','price':'IDR'}
-    // };
+  
     const numlist = {
       'Philippines':'7.86',
     'Indonesian':'3,469.75',
@@ -31,11 +32,14 @@ class Pricing extends Component {
   'Indonesian':'VND',
     'Vietnamese':'IDR'
  };
+ const languageLabels = {
+    'en-PH': 'Philippines',
+    'id-ID': 'Indonesian',
+    'vi-VN': 'Vietnamese'
+  };
+  let country=languageLabels[this.context.conutryCode]
  let num=numlist[country];
  let price=pricelist[country];
-
-
-
 
     return (
         <div>

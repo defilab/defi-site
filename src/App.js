@@ -8,10 +8,12 @@ import Pricing from './pages/Pricing'
 import Company from './pages/Company'
 import Header from './components/Header'
 import Footer from './components/Footer'
-
+import AddProvider from './context/provider'
+import AddContext from './context/context';
 class App extends Component {
   render () {
     return (
+      <AddProvider>
         <Router>
           <div className="container">
             <Header />
@@ -21,7 +23,7 @@ class App extends Component {
             <Route path="/company" component={Company} />
             <Footer />
           </div>
-        </Router>
+        </Router></AddProvider>
     );
   }
 }

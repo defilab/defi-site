@@ -7,7 +7,7 @@ import '../global.css'
 import './Header.css'
 import logo from '../assets/logo.png'
 import {setLocle} from '../util/locale'
-import store from '../store/index.js'
+import stateContext from '../context/context'
 const SubMenu = Menu.SubMenu;
 class Header extends Component {
   render () {
@@ -19,17 +19,7 @@ class Header extends Component {
       'id-ID': 'Indonesian',
       'vi-VN': 'Vietnamese'
     };
-    const changeCountry = ({ key }) => {
-      setLocle(key)
-      store.dispatch({type: key})
-    };
-    const menu = (
-      <Menu className='submenu-active' onClick={changeCountry} selectable defaultSelectedKeys={'en-PH'}>
-        <Menu.Item key="en-PH" id="en-PH"  >Philippines</Menu.Item>
-        <Menu.Item key="id-ID" id="id-ID" >Indonesian</Menu.Item>
-        <Menu.Item key="vi-VN" id="vi-VN">Vietnamese</Menu.Item>
-      </Menu>
-    );
+    
     return (
       <Row className="header" type="flex" align="middle" justify="center" style={{
         position: transparent ? 'absolute' : 'static', backgroundColor: transparent ? 'rgba(24, 40, 72, 0.2)' : '#182848'}}>
@@ -52,10 +42,21 @@ class Header extends Component {
             <Row type="flex" justify="end">
                 <a className="header-link" href="/white-paper.pdf">White Paper</a>
                 <div style={{ width: '30px' }} />
-                <a className=" header-link" href="https://portal.test.defilab.com" >     
-                  <Dropdown overlay={menu} >
-                    <a className="ant-dropdown-link " href="#">Language</a>
-                  </Dropdown>
+                <a className="header-link" href="https://portal.test.defilab.com" >  
+                <stateContext.Consumer> 
+                  { 
+                    context=>
+                    (
+                      <Dropdown overlay={(contex) => ( <Menu className='submenu-active'  onClick={(key)=>{context.change(key.key)}} selectable defaultSelectedKeys='en-PH'>
+                        <Menu.Item key="en-PH" id="en-PH"  >Philippines</Menu.Item>
+                        <Menu.Item key="id-ID" id="id-ID" >Indonesian</Menu.Item>
+                        <Menu.Item key="vi-VN" id="vi-VN">Vietnamese</Menu.Item>
+                        </Menu>)} >
+                        <a className="ant-dropdown-link " href="#">Language</a>
+                     </Dropdown>
+                     )
+                  }
+                </stateContext.Consumer>  
                 </a>
                 <div style={{ width: '30px' }} />
                 <a className="header-link" href="https://portal.test.defilab.com">Sign In</a>
