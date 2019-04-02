@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import AddContext from './context';
-import { setLocal } from '../util/locale'
+import { setLocale } from '../util/locale'
 class AddProvider extends Component {
   state = {
     conutryCode: 'en-PH'

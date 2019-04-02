@@ -3,12 +3,12 @@ const languageLabels = {
     'id-ID': 'Indonesian',
     'vi-VN': 'Vietnamese'
 };
-export const setLocal = function setLocle(countryCode) {
+export const setLocale = function setLocale(countryCode) {
     const storage = window.localStorage;
     storage.setItem("country", languageLabels[countryCode]);
 
 }
-export function geLocal() {
+export function geLocale() {
     const storage = window.localStorage;
     return storage['country']
 }
