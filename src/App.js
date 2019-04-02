@@ -9,9 +9,8 @@ import Company from './pages/Company'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import AddProvider from './context/provider'
-import AddContext from './context/context';
 class App extends Component {
-  render () {
+  render() {
     return (
       <AddProvider>
         <Router>

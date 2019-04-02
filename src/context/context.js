@@ -2,5 +2,5 @@ import React from 'react';
 
 export default React.createContext({
   language: 'Philippines',
-  change: (language) => {}
+  change: (language) => { }
 });

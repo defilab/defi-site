@@ -26,6 +26,7 @@
     color: white;
     background-color: #4A70B7;
 }
+
 .header .ant-menu-submenu-active a {
     text-decoration: none;
     color: white;
@@ -70,25 +71,9 @@
     color: rgb(255, 255, 255);
 }
 
-
-
-
-/* @import '~antd/lib/style/themes/default.less'; */
-
-/* .menu {
-  :global(.anticon) {
-    margin-right: 8px;
-  }
-  :global(.ant-dropdown-menu-item) {
-    min-width: 160px;
-  }
-} */
-
 .dropDown {
   cursor: pointer;
   vertical-align: top;
-  /* line-height: @layout-header-height; */
-
 }
 .dropDown> i{
     font-size: 14px !important;
@@ -110,14 +95,7 @@
     color: rgba(0, 0, 0, 0.65);
   }
   
-  .ant-menu-vertical :not(:last-child).ant-menu-item, .ant-menu-vertical-left :not(:last-child).ant-menu-item, .ant-menu-vertical-right :not(:last-child).ant-menu-item, .ant-menu-inline :not(:last-child).ant-menu-item {
-    margin-bottom: 0px;
-}
-.ant-menu-vertical .ant-menu-item, .ant-menu-vertical-left .ant-menu-item, .ant-menu-vertical-right .ant-menu-item, .ant-menu-inline .ant-menu-item, .ant-menu-vertical .ant-menu-submenu-title, .ant-menu-vertical-left .ant-menu-submenu-title, .ant-menu-vertical-right .ant-menu-submenu-title, .ant-menu-inline .ant-menu-submenu-title{
-    margin-top:0px;
-} 
-
-
+ 
 
 
 
