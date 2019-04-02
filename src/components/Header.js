@@ -9,10 +9,7 @@ import logo from '../assets/logo.png'
 import stateContext from '../context/context'
 import { getLocale, setLocale } from '../util/locale'
 const SubMenu = Menu.SubMenu;
-
-
 class Header extends Component {
-
   render() {
     const languageLabels = {
       'Philippines': 'en-PH',
