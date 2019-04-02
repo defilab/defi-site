@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
-
 import AddContext from './context';
-import { setLocale } from '../util/locale'
+import { setLocale, getLocale, languageLabels } from '../util/locale'
 class AddProvider extends Component {
   state = {
-    conutryCode: 'en-PH'
+    country: getLocale() === '' ? 'Philippines' : getLocale()
   };
-  change = (conutryCode) => {
-    this.setState({ conutryCode: conutryCode });
-    setLocal(conutryCode)
+  change = (countryCode) => {
+    this.setState({ country: languageLabels[countryCode] });
+    setLocale(countryCode)
   }
   render() {
     return (
       <AddContext.Provider
         value={{
-          conutryCode: this.state.conutryCode,
+          country: this.state.country,
           change: this.change,
         }}
       >

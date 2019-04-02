@@ -1,4 +1,4 @@
-const languageLabels = {
+export const languageLabels = {
     'en-PH': 'Philippines',
     'id-ID': 'Indonesian',
     'vi-VN': 'Vietnamese'
@@ -6,10 +6,15 @@ const languageLabels = {
 export const setLocale = function setLocale(countryCode) {
     const storage = window.localStorage;
     storage.setItem("country", languageLabels[countryCode]);
-
 }
-export function geLocale() {
+export function getLocale() {
     const storage = window.localStorage;
-    return storage['country']
+    if (storage['country']) {
+        return storage['country']
+
+    } else {
+        return ''
+    }
+
 }
 

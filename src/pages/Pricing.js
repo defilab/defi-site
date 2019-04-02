@@ -10,11 +10,8 @@ class Pricing extends Component {
   state = {
     showContactInfo: false
   }
-
   static contextType = stateContext;
-
   render() {
-
     const numlist = {
       'Philippines': '7.86',
       'Indonesian': '3,469.75',
@@ -22,15 +19,15 @@ class Pricing extends Component {
     };
     const pricelist = {
       'Philippines': 'PHP',
-      'Indonesian': 'VND',
-      'Vietnamese': 'IDR'
+      'Indonesian': 'IDR',
+      'Vietnamese': 'VND'
     };
     const languageLabels = {
       'en-PH': 'Philippines',
       'id-ID': 'Indonesian',
       'vi-VN': 'Vietnamese'
     };
-    const country = languageLabels[this.context.conutryCode]
+    const country = this.context.country
     const num = numlist[country];
     const price = pricelist[country];
 

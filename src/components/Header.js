@@ -7,9 +7,19 @@ import '../global.css'
 import './Header.css'
 import logo from '../assets/logo.png'
 import stateContext from '../context/context'
+import { getLocale, setLocale } from '../util/locale'
 const SubMenu = Menu.SubMenu;
+
+
 class Header extends Component {
+
   render() {
+    const languageLabels = {
+      'Philippines': 'en-PH',
+      'Indonesian': 'id-ID',
+      'Vietnamese': 'vi-VN'
+    };
+    const defaultKey = getLocale() === '' ? 'en-PH' : languageLabels[getLocale()]
     const path = this.props.location.pathname
     const transparent = path === '/'
     let activeLink = path.split('/')[1]
@@ -41,7 +51,7 @@ class Header extends Component {
                   {
                     context =>
                       (
-                        <Dropdown overlay={(contex) => (<Menu className='submenu-active' onClick={(key) => { context.change(key.key) }} selectable defaultSelectedKeys='en-PH'>
+                        <Dropdown overlay={(contex) => (<Menu className='submenu-active' onClick={(key) => { context.change(key.key) }} selectable defaultSelectedKeys={defaultKey}>
                           <Menu.Item key="en-PH" id="en-PH"  >Philippines</Menu.Item>
                           <Menu.Item key="id-ID" id="id-ID" >Indonesian</Menu.Item>
                           <Menu.Item key="vi-VN" id="vi-VN">Vietnamese</Menu.Item>
