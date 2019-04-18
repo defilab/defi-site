@@ -16,35 +16,39 @@ class Header extends Component {
     let activeLink = path.split('/')[1]
 
     return (
-        <Row className="header" type="flex" align="middle" justify="center" style={{
-          position: transparent ? 'absolute' : 'static',
-          backgroundColor: transparent ? 'rgba(24, 40, 72, 0.2)' : '#182848'
-        }}>
-          <Row className="content" type="flex" align="middle">
-            <Col span={14}>
-              <Row type="flex" align="middle">
-                <div><Link to="/"><img className="logo" src={logo} alt="logo" /></Link></div>
-                <div>
-                  <Menu className="nav" theme="dark" mode="horizontal" selectedKeys={[activeLink]}>
-                    <SubMenu className={activeLink === 'products' ? 'submenu-active' : ''} key="products"
-                             title="Products">
-                      <Menu.Item><Link to="/products">Credit Fraud Detection</Link></Menu.Item>
-                    </SubMenu>
-                    <Menu.Item key="pricing"><Link to="/pricing">Pricing</Link></Menu.Item>
-                    <Menu.Item key="company"><Link to="/company">About</Link></Menu.Item>
-                  </Menu>
-                </div>
-              </Row>
-            </Col>
-            <Col span={10}>
-              <Row type="flex" justify="end">
-                <a className="header-link" href="/white-paper-en.pdf">White Paper</a>
-                <div style={{ width: '30px' }} />
-                <a className="header-link" href="https://portal.test.defilab.com">Sign In</a>
-              </Row>
-            </Col>
-          </Row>
+      <Row className="header" type="flex" align="middle" justify="center" style={{
+        position: transparent ? 'absolute' : 'static',
+        backgroundColor: transparent ? 'rgba(24, 40, 72, 0.2)' : '#182848'
+      }}>
+        <Row className="content" type="flex" align="middle">
+          <Col span={14}>
+            <Row type="flex" align="middle">
+              <div><Link to="/"><img className="logo" src={logo} alt="logo" /></Link></div>
+              <div>
+                <Menu className="nav" theme="dark" mode="horizontal" selectedKeys={[activeLink]}>
+                  <SubMenu className={activeLink === 'products' ? 'submenu-active' : ''} key="products"
+                           title="Products">
+                    <Menu.Item><Link to="/products">Credit Fraud Detection</Link></Menu.Item>
+                  </SubMenu>
+                  <Menu.Item key="pricing"><Link to="/pricing">Pricing</Link></Menu.Item>
+                  <Menu.Item key="company"><Link to="/company">About</Link></Menu.Item>
+                </Menu>
+              </div>
+            </Row>
+          </Col>
+          <Col span={10}>
+            <Row type="flex" justify="end">
+              <a className="header-link" href="/white-paper-en.pdf">White Paper</a>
+              <div style={{ width: '30px' }} />
+              <a className="header-link" href="http://docs.defilab.com">Dev Portal</a>
+              <div style={{ width: '30px' }} />
+              <a className="header-link" href="https://portal.test.defilab.com">
+                <span style={{ border: '1px solid rgba(255, 255, 255, 20%)', padding: '6px 8px' }}>Sign In</span>
+              </a>
+            </Row>
+          </Col>
         </Row>
+      </Row>
     );
   }
 }
