@@ -63,7 +63,8 @@ class Header extends Component {
                     </div>
                   )
                 }
-              </stateContext.Consumer>            </Row>
+              </stateContext.Consumer>
+            </Row>
           </Col>
         </Row>
       </Row>

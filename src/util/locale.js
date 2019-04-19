@@ -9,9 +9,8 @@ export const setLocale = function setLocale(countryCode) {
 }
 export function getLocale() {
     const storage = window.localStorage;
-    if (storage['country']) {
-        return storage['country']
-    } else {
-        return ''
+    if(!storage['country']){
+        return '';
     }
+    return storage['country'];
 }
