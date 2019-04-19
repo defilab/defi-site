@@ -13,12 +13,7 @@ const SubMenu = Menu.SubMenu;
 
 class Header extends Component {
   render() {
-    const languageLabels = {
-      'Philippines': 'en-PH',
-      'Indonesian': 'id-ID',
-      'Vietnamese': 'vi-VN'
-    };
-    let defaultKey = getLocale() === '' ? 'en-PH' : languageLabels[getLocale()]
+    let countryCode = getLocale() === '' ? 'en-PH' : getLocale()
     const path = this.props.location.pathname
     const transparent = path === '/'
     let activeLink = path.split('/')[1]
@@ -49,18 +44,18 @@ class Header extends Component {
               <stateContext.Consumer>
                 {
                   context => (
-                    <div >
-                      <Menu className="nav" theme="dark" mode="horizontal" selectable={false}
-                        onClick={(key) => { context.change(key.key); defaultKey = getLocale() === '' ? 'en-PH' : languageLabels[getLocale()] }}>
-                        <Menu.Item style={{ padding: '0' }} ><a href="/white-paper.pdf">White Paper</a></Menu.Item>
-                        <SubMenu className={'submenu'} title="Language" key="language" >
-                          <Menu.Item key="en-PH" id="en-PH" style={{ color: `${"en-PH" === defaultKey ? 'white' : 'rgba(255, 255, 255, 0.65)'}` }} >Philippines</Menu.Item>
-                          <Menu.Item key="id-ID" id="id-ID" style={{ color: `${"id-ID" === defaultKey ? 'white' : 'rgba(255, 255, 255, 0.65)'}` }} >Indonesian</Menu.Item>
-                          <Menu.Item key="vi-VN" id="vi-VN" style={{ color: `${"vi-VN" === defaultKey ? 'white' : 'rgba(255, 255, 255, 0.65)'}` }}>Vietnamese</Menu.Item>
-                        </SubMenu>
-                        <Menu.Item style={{ padding: '0' }}><a className="header-link" href="https://portal.test.defilab.com">Sign In</a></Menu.Item>
-                      </Menu>
-                    </div>
+
+                    <Menu className="nav" theme="dark" mode="horizontal" selectable={false}
+                      onClick={({ key }) => { if (["en-PH", "id-ID", "vi-VN"].includes(key)) { context.change(key); countryCode = getLocale() === '' ? 'en-PH' : getLocale() } }}>
+                      <Menu.Item style={{ padding: '0' }} ><a href="/white-paper.pdf">White Paper</a></Menu.Item>
+                      <SubMenu title="Language" key="language" >
+                        <Menu.Item key="en-PH" style={{ color: `${"en-PH" === countryCode ? 'white' : 'rgba(255, 255, 255, 0.65)'}` }} >Philippines</Menu.Item>
+                        <Menu.Item key="id-ID" style={{ color: `${"id-ID" === countryCode ? 'white' : 'rgba(255, 255, 255, 0.65)'}` }} >Indonesian</Menu.Item>
+                        <Menu.Item key="vi-VN" style={{ color: `${"vi-VN" === countryCode ? 'white' : 'rgba(255, 255, 255, 0.65)'}` }}>Vietnamese</Menu.Item>
+                      </SubMenu>
+                      <Menu.Item style={{ padding: '0' }}><a href="https://portal.test.defilab.com">Sign In</a></Menu.Item>
+                    </Menu>
+
                   )
                 }
               </stateContext.Consumer>

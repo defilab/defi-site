@@ -14,25 +14,13 @@ class Pricing extends Component {
   static contextType = stateContext;
 
   render() {
-    const numlist = {
-      'Philippines': '7.86',
-      'Indonesian': '3,469.75',
-      'Vietnamese': '2,108.75'
+    const data = {
+      'en-PH': { priceNum: '7.86', priceMeasure: 'PHP', minPriceNum: '1000' },
+      'id-ID': { priceNum: '3,469.75', priceMeasure: 'IDR', minPriceNum: '2M' },
+      'vi-VN': { priceNum: '2,108.75', priceMeasure: 'VND', minPriceNum: '5M' },
     };
-    const pricelist = {
-      'Philippines': 'PHP',
-      'Indonesian': 'IDR',
-      'Vietnamese': 'VND'
-    };
-    const minPricelist = {
-      'Philippines': '1000',
-      'Indonesian': '2M',
-      'Vietnamese': '5M'
-    };
-    const country = this.context.country
-    const num = numlist[country];
-    const price = pricelist[country];
-    const minprice = minPricelist[country];
+    const countryCode = this.context.countryCode
+    const { priceNum, priceMeasure, minPriceNum } = data[countryCode]
     return (
       <div>
         <Row className={globalStyles.section} style={{ textAlign: 'center' }} type="flex" justify="center">
@@ -66,11 +54,11 @@ class Pricing extends Component {
                   <div className={styles.line} />
                   <div style={{ fontSize: '14px', fontWeight: '500' }}>Pay as you query</div>
                   <Spacing height="34px" />
-                  <div style={{ fontSize: '12px', color: '#AAAAAA' }}>Minimum deposit: {minprice} {price}</div>
+                  <div style={{ fontSize: '12px', color: '#AAAAAA' }}>Minimum deposit: {minPriceNum} {priceMeasure}</div>
                   <div style={{ color: '#405275' }}>
                     <div style={{ fontWeight: '500' }}>
-                      <span style={{ fontSize: '26px', lineHeight: '70px' }}>{num} </span>
-                      <span style={{ fontSize: '20px' }}>{price}</span>
+                      <span style={{ fontSize: '26px', lineHeight: '70px' }}>{priceNum} </span>
+                      <span style={{ fontSize: '20px' }}>{priceMeasure}</span>
                     </div>
                     <div style={{ fontSize: '14px' }}>each query</div>
                   </div>
