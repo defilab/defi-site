@@ -8,12 +8,12 @@ import Pricing from './pages/Pricing'
 import Company from './pages/Company'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import AddProvider from './context/provider'
+import  RegionProvider from './context/provider'
 
 class App extends Component {
   render() {
     return (
-      <AddProvider>
+      <RegionProvider>
       <Router>
         <div className="container">
           <Header />
@@ -24,7 +24,7 @@ class App extends Component {
           <Footer />
         </div>
       </Router>     
-      </AddProvider>
+      </RegionProvider>
     );
   }
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AddContext from './context';
 import { setLocale, getLocale, languageLabels } from '../util/locale'
-class AddProvider extends Component {
+class RegionProvider extends Component {
   state = {
     country: getLocale() === '' ? 'Philippines' : getLocale()
   };
@@ -23,4 +23,4 @@ class AddProvider extends Component {
   }
 }
 
-export default AddProvider;
+export default RegionProvider;
