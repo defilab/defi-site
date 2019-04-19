@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import RegionContext from './context';
 import { setLocale, getLocale } from '../util/locale'
+import RegionContext from './context'
 
 class RegionProvider extends Component {
     state = {

@@ -7,7 +7,7 @@ import '../global.css'
 import './Header.css'
 import logo from '../assets/logo.png'
 import { getLocale } from '../util/locale'
-import stateContext from '../context/context'
+import RegionContext from '../context/context'
 
 const SubMenu = Menu.SubMenu;
 
@@ -41,24 +41,27 @@ class Header extends Component {
           </Col>
           <Col span={10}>
             <Row type="flex" justify="end">
-              <stateContext.Consumer>
+              <RegionContext.Consumer>
                 {
                   context => (
-
                     <Menu className="nav" theme="dark" mode="horizontal" selectable={false}
-                      onClick={({ key }) => { if (["en-PH", "id-ID", "vi-VN"].includes(key)) { context.change(key); countryCode = getLocale() === '' ? 'en-PH' : getLocale() } }}>
+                      onClick={({ key }) => {
+                        if (["en-PH", "id-ID", "vi-VN"].includes(key)) {
+                          console.log(context,'llll')
+                          context.change(key); countryCode = key
+                        }
+                      }}>
                       <Menu.Item style={{ padding: '0' }} ><a href="/white-paper.pdf">White Paper</a></Menu.Item>
                       <SubMenu title="Language" key="language" >
-                        <Menu.Item key="en-PH" style={{ color: `${"en-PH" === countryCode ? 'white' : 'rgba(255, 255, 255, 0.65)'}` }} >Philippines</Menu.Item>
-                        <Menu.Item key="id-ID" style={{ color: `${"id-ID" === countryCode ? 'white' : 'rgba(255, 255, 255, 0.65)'}` }} >Indonesian</Menu.Item>
+                        <Menu.Item key="en-PH" style={{ color: `${"en-PH" === countryCode ? 'white' : 'rgba(255, 255, 255, 0.65)'}` }}>Philippines</Menu.Item>
+                        <Menu.Item key="id-ID" style={{ color: `${"id-ID" === countryCode ? 'white' : 'rgba(255, 255, 255, 0.65)'}` }}>Indonesian</Menu.Item>
                         <Menu.Item key="vi-VN" style={{ color: `${"vi-VN" === countryCode ? 'white' : 'rgba(255, 255, 255, 0.65)'}` }}>Vietnamese</Menu.Item>
                       </SubMenu>
                       <Menu.Item style={{ padding: '0' }}><a href="https://portal.test.defilab.com">Sign In</a></Menu.Item>
                     </Menu>
-
                   )
                 }
-              </stateContext.Consumer>
+              </RegionContext.Consumer>
             </Row>
           </Col>
         </Row>

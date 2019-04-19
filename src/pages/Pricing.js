@@ -5,13 +5,13 @@ import styles from './Pricing.module.css'
 import Spacing from '../components/Spacing'
 import tileBg1 from '../assets/pricing_tile_bg_1.png'
 import tileBg2 from '../assets/pricing_tile_bg_2.png'
-import stateContext from '../context/context'
+import RegionContext from '../context/context'
 
 class Pricing extends Component {
   state = {
     showContactInfo: false
   }
-  static contextType = stateContext;
+  static contextType = RegionContext;
 
   render() {
     const data = {
