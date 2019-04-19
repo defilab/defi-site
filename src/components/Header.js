@@ -47,12 +47,12 @@ class Header extends Component {
                     <Menu className="nav" theme="dark" mode="horizontal" selectable={false}
                       onClick={({ key }) => {
                         if (["en-PH", "id-ID", "vi-VN"].includes(key)) {
-                          console.log(context,'llll')
+                          console.log(context, 'llll')
                           context.change(key); countryCode = key
                         }
                       }}>
                       <Menu.Item style={{ padding: '0' }} ><a href="/white-paper.pdf">White Paper</a></Menu.Item>
-                      <SubMenu title="Language" key="language" >
+                      <SubMenu title={<span>Language</span>} key="language" >
                         <Menu.Item key="en-PH" style={{ color: `${"en-PH" === countryCode ? 'white' : 'rgba(255, 255, 255, 0.65)'}` }}>Philippines</Menu.Item>
                         <Menu.Item key="id-ID" style={{ color: `${"id-ID" === countryCode ? 'white' : 'rgba(255, 255, 255, 0.65)'}` }}>Indonesian</Menu.Item>
                         <Menu.Item key="vi-VN" style={{ color: `${"vi-VN" === countryCode ? 'white' : 'rgba(255, 255, 255, 0.65)'}` }}>Vietnamese</Menu.Item>
