@@ -49,16 +49,15 @@ class Header extends Component {
                 {
                   context => (
                     <div >
-                      <Menu className="nav" theme="dark" mode="horizontal" selectable={false} key="menuu"
-                       onClick={(key) => { context.change(key.key);  defaultKey = getLocale() === '' ? 'en-PH' : languageLabels[getLocale()]}}>
-                        <Menu.Item style={{padding:'0'}} ><a href="/white-paper.pdf">White Paper</a></Menu.Item>
-                        <SubMenu className={'submenu'} title="Language" key="language" 
-                          >
+                      <Menu className="nav" theme="dark" mode="horizontal" selectable={false}
+                        onClick={(key) => { context.change(key.key); defaultKey = getLocale() === '' ? 'en-PH' : languageLabels[getLocale()] }}>
+                        <Menu.Item style={{ padding: '0' }} ><a href="/white-paper.pdf">White Paper</a></Menu.Item>
+                        <SubMenu className={'submenu'} title="Language" key="language" >
                           <Menu.Item key="en-PH" id="en-PH" style={{ textAlign: 'center', color: `${"en-PH" === defaultKey ? 'white' : 'rgba(255, 255, 255, 0.65)'}` }} >Philippines</Menu.Item>
                           <Menu.Item key="id-ID" id="id-ID" style={{ textAlign: 'center', color: `${"id-ID" === defaultKey ? 'white' : 'rgba(255, 255, 255, 0.65)'}` }} >Indonesian</Menu.Item>
                           <Menu.Item key="vi-VN" id="vi-VN" style={{ textAlign: 'center', color: `${"vi-VN" === defaultKey ? 'white' : 'rgba(255, 255, 255, 0.65)'}` }}>Vietnamese</Menu.Item>
                         </SubMenu>
-                        <Menu.Item style={{padding:'0'}}><a className="header-link" href="https://portal.test.defilab.com">Sign In</a></Menu.Item>
+                        <Menu.Item style={{ padding: '0' }}><a className="header-link" href="https://portal.test.defilab.com">Sign In</a></Menu.Item>
                       </Menu>
                     </div>
                   )
