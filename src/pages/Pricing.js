@@ -6,7 +6,6 @@ import Spacing from '../components/Spacing'
 import tileBg1 from '../assets/pricing_tile_bg_1.png'
 import tileBg2 from '../assets/pricing_tile_bg_2.png'
 import stateContext from '../context/context'
-import AddProvider from '../context/provider'
 
 class Pricing extends Component {
   state = {
@@ -23,11 +22,6 @@ class Pricing extends Component {
       'Philippines': 'PHP',
       'Indonesian': 'IDR',
       'Vietnamese': 'VND'
-    };
-    const languageLabels = {
-      'en-PH': 'Philippines',
-      'id-ID': 'Indonesian',
-      'vi-VN': 'Vietnamese'
     };
     const minPricelist = {
       'Philippines': '1000',

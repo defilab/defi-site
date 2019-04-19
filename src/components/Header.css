@@ -67,18 +67,20 @@
     color: rgb(255, 255, 255);
 }
 
-.dropdown{
+#language\$Menu {
+    background-color: #182848;
+    min-width: 50px;
     color: rgba(255, 255, 255, 0.6);
 }
-.dropdown:hover{
-    color: rgb(255, 255, 255);
+#language\$Menu>.ant-menu-item-selected{
+    background-color: #182848!important;
+}
+#language\$Menu>.ant-menu-item:hover{
+    color: white!important;
+}
+#menuu\$Menu{
+    padding: 0
 }
 
-.ant-dropdown-open{
-    color: rgb(255, 255, 255);   
-}
-.ant-dropdown-menu{
-    padding: 0;
 
-}
 

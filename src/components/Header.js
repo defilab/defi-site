@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { Row, Col, Menu, Dropdown } from 'antd'
+import { Row, Col, Menu } from 'antd'
 import "antd/dist/antd.css"
 import { Link } from "react-router-dom"
 import { withRouter } from "react-router";
 import '../global.css'
 import './Header.css'
 import logo from '../assets/logo.png'
-import { getLocale, setLocale } from '../util/locale'
+import { getLocale } from '../util/locale'
 import stateContext from '../context/context'
 
 const SubMenu = Menu.SubMenu;
@@ -17,7 +17,7 @@ class Header extends Component {
       'Indonesian': 'id-ID',
       'Vietnamese': 'vi-VN'
     };
-    const defaultKey = getLocale() === '' ? 'en-PH' : languageLabels[getLocale()]
+    let defaultKey = getLocale() === '' ? 'en-PH' : languageLabels[getLocale()]
     const path = this.props.location.pathname
     const transparent = path === '/'
     let activeLink = path.split('/')[1]
@@ -44,30 +44,26 @@ class Header extends Component {
             </Row>
           </Col>
           <Col span={10}>
-            <Row type="flex" justify="end">
-              <a className="header-link" href="/white-paper.pdf">White Paper</a>
-              <div style={{ width: '30px' }} />
-              <a className="header-link" href="https://portal.test.defilab.com" >
-                <stateContext.Consumer>
-                  {
-                    context =>
-                      (
-                        <Dropdown
-                          className="dropdown" overlay={(contex) => (
-                            <Menu theme="dark"
-                              onClick={(key) => { context.change(key.key) }} selectable defaultSelectedKeys={defaultKey}>
-                              <Menu.Item key="en-PH" id="en-PH" style={{ height: '40px' }} >Philippines</Menu.Item>
-                              <Menu.Item key="id-ID" id="id-ID" style={{ height: '40px' }}>Indonesian</Menu.Item>
-                              <Menu.Item key="vi-VN" id="vi-VN" style={{ height: '40px' }}>Vietnamese</Menu.Item>
-                            </Menu>)} >
-                          <a className="ant-dropdown-link " href="#">Language</a>
-                        </Dropdown>
-                      )
-                  }
-                </stateContext.Consumer>
-              </a>
-              <div style={{ width: '30px' }} />
-              <a className="header-link" href="https://portal.test.defilab.com">Sign In</a>
+            <Row type="flex" justify="end" >
+              <stateContext.Consumer>
+                {
+                  context => (
+                    <div >
+                      <Menu className="nav" theme="dark" mode="horizontal" selectable={false} key="menuu"
+                       onClick={(key) => { context.change(key.key);  defaultKey = getLocale() === '' ? 'en-PH' : languageLabels[getLocale()]}}>
+                        <Menu.Item style={{padding:'0'}} ><a href="/white-paper.pdf">White Paper</a></Menu.Item>
+                        <SubMenu className={'submenu'} title="Language" key="language" 
+                          >
+                          <Menu.Item key="en-PH" id="en-PH" style={{ textAlign: 'center', color: `${"en-PH" === defaultKey ? 'white' : 'rgba(255, 255, 255, 0.65)'}` }} >Philippines</Menu.Item>
+                          <Menu.Item key="id-ID" id="id-ID" style={{ textAlign: 'center', color: `${"id-ID" === defaultKey ? 'white' : 'rgba(255, 255, 255, 0.65)'}` }} >Indonesian</Menu.Item>
+                          <Menu.Item key="vi-VN" id="vi-VN" style={{ textAlign: 'center', color: `${"vi-VN" === defaultKey ? 'white' : 'rgba(255, 255, 255, 0.65)'}` }}>Vietnamese</Menu.Item>
+                        </SubMenu>
+                        <Menu.Item style={{padding:'0'}}><a className="header-link" href="https://portal.test.defilab.com">Sign In</a></Menu.Item>
+                      </Menu>
+                    </div>
+                  )
+                }
+              </stateContext.Consumer>
             </Row>
           </Col>
         </Row>
