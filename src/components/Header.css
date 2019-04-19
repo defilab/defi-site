@@ -66,3 +66,19 @@
 .header-link:hover {
     color: rgb(255, 255, 255);
 }
+
+.dropdown{
+    color: rgba(255, 255, 255, 0.6);
+}
+.dropdown:hover{
+    color: rgb(255, 255, 255);
+}
+
+.ant-dropdown-open{
+    color: rgb(255, 255, 255);   
+}
+.ant-dropdown-menu{
+    padding: 0;
+
+}
+
