@@ -66,3 +66,11 @@
 .header-link:hover {
     color: rgb(255, 255, 255);
 }
+
+#language\$Menu {
+    background-color: #182848;
+    min-width: 50px;
+}
+#language\$Menu>.ant-menu-item:hover{
+    color: white!important;
+}
